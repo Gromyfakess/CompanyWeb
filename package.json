@@ -1,0 +1,13 @@
+{
+  "name": "stratis-technologies-companyweb",
+  "version": "2.1.0",
+  "description": "STRATiS Technologies Inc. — Enterprise Architecture & Distributed Cloud Systems",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "private": true
+}

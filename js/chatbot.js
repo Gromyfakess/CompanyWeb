@@ -287,30 +287,47 @@ Anda dapat menggunakan **5 Tombol Topik Cepat** di bawah untuk informasi instan 
             let aiResponseText = null;
             let errorMessage = null;
 
-            try {
-                const res = await fetch("/api/chat", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        messages: conversationHistory.slice(-8)
-                    })
-                });
+            const candidateEndpoints = ["/api/chat", "/.netlify/functions/chat"];
+            let requestSuccess = false;
 
-                const data = await res.json();
+            for (const endpoint of candidateEndpoints) {
+                if (requestSuccess) break;
+                try {
+                    const res = await fetch(endpoint, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            messages: conversationHistory.slice(-8)
+                        })
+                    });
 
-                if (res.ok && data.choices && data.choices[0] && data.choices[0].message) {
-                    aiResponseText = data.choices[0].message.content;
-                } else if (data.error === "NO_SERVER_KEY") {
-                    errorMessage = `Sistem AI membutuhkan konfigurasi **NVIDIA_API_KEY** pada environment server (\`.env\`) untuk memproses pertanyaan bebas Anda.\n\nSilakan atur di file \`.env\`:\n\`\`\`env\nNVIDIA_API_KEY=nvapi-your-api-key\nNVIDIA_MODEL=meta/llama-3.1-70b-instruct\n\`\`\`\n\n*(Catatan: 5 Tombol Topik Cepat di atas dapat digunakan untuk respons instan terverifikasi perusahaan).*`;
-                } else if (data.error === "UPSTREAM_ERROR") {
-                    errorMessage = `Kendala koneksi ke NVIDIA NIM AI:\n**${escapeHtml(data.message || "Upstream Error")}**\n\nSilakan periksa kembali nilai \`NVIDIA_API_KEY\` dan \`NVIDIA_MODEL\` di file \`.env\`.`;
-                } else if (data.message) {
-                    errorMessage = data.message;
-                } else {
-                    errorMessage = "Tidak dapat menerima respons dari server AI. Silakan periksa koneksi server lokal Anda.";
+                    const contentType = res.headers.get("content-type") || "";
+                    if (!contentType.includes("application/json")) {
+                        // Received HTML (such as 404 page or fallback) instead of JSON
+                        continue;
+                    }
+
+                    const data = await res.json();
+                    requestSuccess = true;
+
+                    if (res.ok && data.choices && data.choices[0] && data.choices[0].message) {
+                        aiResponseText = data.choices[0].message.content;
+                    } else if (data.error === "NO_SERVER_KEY") {
+                        errorMessage = `Sistem AI membutuhkan konfigurasi **NVIDIA_API_KEY** pada environment server.\n\n**Cara Konfigurasi di Netlify (Live Web):**\n1. Buka dashboard Netlify > **Site configuration** > **Environment variables**.\n2. Tambahkan variable baru:\n   - **NVIDIA_API_KEY**: \`nvapi-...\` (API key NVIDIA Anda)\n   - **NVIDIA_MODEL**: \`nvidia/nemotron-3.5-lightning-30b-a3b\`\n3. Lakukan **Trigger deploy** / re-deploy situs di Netlify agar variabel diterapkan.\n\n*(Catatan: 5 Tombol Topik Cepat di atas dapat digunakan untuk respons instan terverifikasi).*`;
+                    } else if (data.error === "UPSTREAM_ERROR") {
+                        errorMessage = `Kendala koneksi ke NVIDIA NIM AI (${escapeHtml(data.model || "nemotron")}):\n**${escapeHtml(data.message || "Upstream Error")}**\n\nSilakan periksa kembali nilai \`NVIDIA_API_KEY\` dan \`NVIDIA_MODEL\` di Netlify Environment Variables.`;
+                    } else if (data.message) {
+                        errorMessage = data.message;
+                    } else {
+                        errorMessage = "Tidak dapat menerima respons dari server AI.";
+                    }
+                } catch (endpointErr) {
+                    // Endpoint unreachable or network issue, try next candidate
                 }
-            } catch (networkErr) {
-                errorMessage = `Tidak dapat terhubung ke endpoint \`/api/chat\` (${escapeHtml(networkErr.message)}).\n\nPastikan server lokal dijalankan dengan perintah:\n\`\`\`bash\nnode server.js\n\`\`\`\ndan pastikan \`NVIDIA_API_KEY\` telah diatur di file \`.env\`.`;
+            }
+
+            if (!requestSuccess && !errorMessage) {
+                errorMessage = `Tidak dapat terhubung ke endpoint fungsi serverless di Netlify.\n\n**Untuk Netlify Live Web:**\nPastikan Anda telah menambahkan variabel berikut di menu **Site configuration > Environment variables** di Netlify:\n- **NVIDIA_API_KEY**: \`nvapi-...\`\n- **NVIDIA_MODEL**: \`nvidia/nemotron-3.5-lightning-30b-a3b\`\n\nLalu klik **Trigger deploy** untuk menerapkan pengaturan.\n\n*(Catatan: 5 Tombol Topik Cepat di atas tetap aktif dan dapat digunakan kapan saja).*`;
             }
 
             removeTypingIndicator();
