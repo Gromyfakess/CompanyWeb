@@ -107,7 +107,7 @@ exports.handler = async (event) => {
 
     // Load API Key and Model from Environment Variables
     const apiKey = process.env.NVIDIA_API_KEY || process.env.NIM_API_KEY;
-    const model = process.env.NVIDIA_MODEL || process.env.NIM_MODEL || 'meta/llama-3.1-70b-instruct';
+    const model = process.env.NVIDIA_MODEL || process.env.NIM_MODEL || 'nvidia/nemotron-3.5-lightning-30b-a3b';
 
     if (!apiKey) {
       return {

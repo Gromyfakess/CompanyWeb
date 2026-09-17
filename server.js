@@ -110,6 +110,6 @@ const server = http.createServer(async (req, res) => {
 
 server.listen(PORT, () => {
   console.log(`[STRATiS Server] Running on http://localhost:${PORT}`);
-  console.log(`[STRATiS Server] Active Model: ${process.env.NVIDIA_MODEL || 'meta/llama-3.1-70b-instruct'}`);
+  console.log(`[STRATiS Server] Active Model: ${process.env.NVIDIA_MODEL || 'nvidia/nemotron-3.5-lightning-30b-a3b'}`);
   console.log(`[STRATiS Server] API Key Loaded: ${Boolean(process.env.NVIDIA_API_KEY || process.env.NIM_API_KEY)}`);
 });

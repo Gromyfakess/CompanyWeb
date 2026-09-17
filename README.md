@@ -55,15 +55,13 @@ Create a `.env` file in the root directory (see `.env.example`):
 # Get a free key at: https://build.nvidia.com/
 NVIDIA_API_KEY=nvapi-your-key-here
 
-# Configurable NVIDIA NIM Model (change anytime!)
-# Examples:
-# - meta/llama-3.1-70b-instruct (Default)
+# Configurable NVIDIA NIM Model
+# Configured model: nvidia/nemotron-3.5-lightning-30b-a3b
+# Other supported models:
+# - meta/llama-3.1-70b-instruct
 # - meta/llama-3.3-70b-instruct
-# - meta/llama-3.1-8b-instruct
 # - nvidia/nemotron-4-340b-instruct
-# - mistralai/mistral-large-2-instruct
-# - deepseek-ai/deepseek-r1
-NVIDIA_MODEL=meta/llama-3.1-70b-instruct
+NVIDIA_MODEL=nvidia/nemotron-3.5-lightning-30b-a3b
 
 # Local Port (default: 8080)
 PORT=8080
