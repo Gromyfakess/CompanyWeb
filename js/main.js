@@ -58,6 +58,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // Mobile Navigation Toggle
+    const mobileToggle = document.getElementById("mobileNavToggle");
+    const navLinksMenu = document.querySelector(".nav-links");
+    if (mobileToggle && navLinksMenu) {
+        mobileToggle.addEventListener("click", () => {
+            navLinksMenu.classList.toggle("is-mobile-open");
+        });
+    }
+
     // 3. Active Nav Link on Scroll
     const sections = document.querySelectorAll("section[id]");
     const navLinks = document.querySelectorAll(".nav-item-link");

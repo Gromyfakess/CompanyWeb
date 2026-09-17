@@ -15,8 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatInput = document.getElementById("chatbotInput");
     const sendBtn = document.getElementById("chatbotSendBtn");
     const quickChatBtns = document.querySelectorAll(".quick-chat-btn");
-    const headerQuickLaunch = document.getElementById("headerAiLaunchBtn");
-    const heroQuickLaunch = document.getElementById("heroAiLaunchBtn");
 
     const STORAGE_KEY_HISTORY = "stratis_assistant_history_v2";
     let conversationHistory = [];
@@ -39,11 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    const heroQuickLaunch = document.getElementById("heroAiLaunchBtn");
     if (launcher) launcher.addEventListener("click", () => toggleChat(true));
-    if (headerQuickLaunch) headerQuickLaunch.addEventListener("click", (e) => {
-        e.preventDefault();
-        toggleChat(true);
-    });
     if (heroQuickLaunch) heroQuickLaunch.addEventListener("click", (e) => {
         e.preventDefault();
         toggleChat(true);
