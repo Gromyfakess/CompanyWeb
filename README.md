@@ -28,36 +28,59 @@
 
 ## 🤖 STRATiS Assistant
 
-- Built-in enterprise copilot with **5 Curated Quick Chat Actions**:
-  - `Profil & Visi STRATiS`
-  - `Layanan Rekayasa Go & Cloud`
-  - `Kapabilitas AI & Sistem Cerdas`
-  - `Portfolio Proyek Produksi`
-  - `Konsultasi & Kontak Kemitraan`
-- Autonomous AI response engine for custom technical queries.
-- Dual-layer Anti-Jailbreak and prompt injection protection.
-- Zero manual API key friction on the client side (serverless Netlify function proxy + offline knowledge base fallback).
+The STRATiS Assistant is architected with a strict separation between instant verified company knowledge and live autonomous AI reasoning:
+
+### 1. 5 Curated Quick Chat Buttons (Instant Verified Answers)
+- **Profil & Visi STRATiS**: Company vision, mission, and core values.
+- **Layanan Rekayasa Go & Cloud**: Go Clean Architecture, microservices, and database clustering.
+- **Kapabilitas AI & Sistem Cerdas**: Enterprise RAG, inference telemetry, and security governance.
+- **Portfolio Proyek Produksi**: Real-world specs for AetherMesh, NexusCore, Cognitive Hub, and Sentinel Gateway.
+- **Konsultasi & Kontak Kemitraan**: Official partnership and executive channels.
+*These 5 buttons return instant deterministic answers without external latency.*
+
+### 2. Manual Typed Input (Live NVIDIA NIM AI)
+- Any question typed into the chat input is routed to the **NVIDIA NIM AI endpoint** (`/api/chat`).
+- No canned or quick responses are used for typed input; the configured AI model answers user questions directly.
+- **Configurable Model**: Easily customize the active model via the `NVIDIA_MODEL` environment variable.
+- **Zero Client-Side Key Exposure**: API keys are securely stored server-side in `.env` or Netlify Environment Variables.
 
 ---
 
-## 🛠️ Tech Stack & Structure
+## ⚙️ Environment Configuration
 
-- **Core**: Semantic HTML5, Vanilla JavaScript (ES6+), Clean Modular CSS (Swiss/Linear Design Pattern).
-- **Icons & Grid**: Local FontAwesome 6, Bootstrap 5 Grid, JetBrains Mono & Inter typography.
-- **Serverless Backend**: Netlify Serverless Functions (`/api/chat`).
-- **Deployment**: Netlify (`netlify.toml`).
+Create a `.env` file in the root directory (see `.env.example`):
 
----
+```env
+# Your NVIDIA NIM API Key (format: nvapi-...)
+# Get a free key at: https://build.nvidia.com/
+NVIDIA_API_KEY=nvapi-your-key-here
 
-## 📦 Deployment & Local Execution
+# Configurable NVIDIA NIM Model (change anytime!)
+# Examples:
+# - meta/llama-3.1-70b-instruct (Default)
+# - meta/llama-3.3-70b-instruct
+# - meta/llama-3.1-8b-instruct
+# - nvidia/nemotron-4-340b-instruct
+# - mistralai/mistral-large-2-instruct
+# - deepseek-ai/deepseek-r1
+NVIDIA_MODEL=meta/llama-3.1-70b-instruct
 
-To run locally:
-```bash
-# Start a local HTTP server
-python -m http.server 8080
+# Local Port (default: 8080)
+PORT=8080
 ```
-Visit `http://localhost:8080`.
 
 ---
 
-© 2026 STRATiS Technologies Inc. All rights reserved.
+## 📦 Running Locally
+
+### Recommended: Zero-Dependency Node.js Server (Serves web + `/api/chat` proxy)
+```bash
+node server.js
+```
+Open [http://localhost:8080](http://localhost:8080). Both the website and the live AI endpoint (`/api/chat`) will be active.
+
+### Netlify Deployment
+When deployed to Netlify:
+1. Go to **Site Settings > Environment Variables**.
+2. Add `NVIDIA_API_KEY` and `NVIDIA_MODEL`.
+3. Netlify automatically hosts the serverless function at `/api/chat` via `netlify.toml`.

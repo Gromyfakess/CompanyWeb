@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let conversationHistory = [];
     let isGenerating = false;
 
-    // Anti-Jailbreak Client Guard Regex
-    const JAILBREAK_CLIENT_REGEX = /(ignore\s+(all\s+)?(previous|prior)\s+instructions|system\s+prompt|dan\s+mode|jailbreak|bypass|act\s+as\s+an\s+unfiltered|pretend\s+you\s+have\s+no\s+rules|reveal\s+(your\s+)?(system|internal)\s+prompt|what\s+model|who\s+trained\s+you|nvidia|nim|nemotron|llama|openai|chatgpt)/i;
+    // Anti-Jailbreak Client Guard Regex (Targets actual malicious prompt-injection attacks)
+    const JAILBREAK_CLIENT_REGEX = /(ignore\s+(all\s+)?(previous|prior)\s+instructions|system\s+prompt|dan\s+mode|jailbreak|bypass\s+(filters|rules|guardrails)|act\s+as\s+an\s+unfiltered|pretend\s+you\s+have\s+no\s+rules|reveal\s+(your\s+)?(system|internal)\s+prompt)/i;
 
     // Toggle Chat Window
     function toggleChat(open) {
@@ -251,8 +251,9 @@ Anda dapat menggunakan **5 Tombol Topik Cepat** di bawah untuk informasi instan 
     }
 
     /**
-     * Handler for Custom User Queries (Autonomous AI)
-     * For all other questions typed by the user, the AI answers on its own.
+     * Handler for Custom User Queries (Powered by NVIDIA NIM AI)
+     * When user types manually, request the live AI completion.
+     * No canned quick responses here — only real AI responses.
      */
     async function handleCustomUserMessage() {
         const text = chatInput.value.trim();
@@ -279,52 +280,60 @@ Anda dapat menggunakan **5 Tombol Topik Cepat** di bawah untuk informasi instan 
             return;
         }
 
-        // Show typing
+        // Show typing indicator
         appendTypingIndicator();
 
         try {
             let aiResponseText = null;
+            let errorMessage = null;
 
-            // Strategy 1: Call serverless Netlify function (/api/chat)
             try {
-                const netlifyRes = await fetch("/api/chat", {
+                const res = await fetch("/api/chat", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
-                        messages: conversationHistory.slice(-6)
+                        messages: conversationHistory.slice(-8)
                     })
                 });
 
-                if (netlifyRes.ok) {
-                    const data = await netlifyRes.json();
-                    if (data.choices && data.choices[0] && data.choices[0].message) {
-                        aiResponseText = data.choices[0].message.content;
-                    }
+                const data = await res.json();
+
+                if (res.ok && data.choices && data.choices[0] && data.choices[0].message) {
+                    aiResponseText = data.choices[0].message.content;
+                } else if (data.error === "NO_SERVER_KEY") {
+                    errorMessage = `Sistem AI membutuhkan konfigurasi **NVIDIA_API_KEY** pada environment server (\`.env\`) untuk memproses pertanyaan bebas Anda.\n\nSilakan atur di file \`.env\`:\n\`\`\`env\nNVIDIA_API_KEY=nvapi-your-api-key\nNVIDIA_MODEL=meta/llama-3.1-70b-instruct\n\`\`\`\n\n*(Catatan: 5 Tombol Topik Cepat di atas dapat digunakan untuk respons instan terverifikasi perusahaan).*`;
+                } else if (data.error === "UPSTREAM_ERROR") {
+                    errorMessage = `Kendala koneksi ke NVIDIA NIM AI:\n**${escapeHtml(data.message || "Upstream Error")}**\n\nSilakan periksa kembali nilai \`NVIDIA_API_KEY\` dan \`NVIDIA_MODEL\` di file \`.env\`.`;
+                } else if (data.message) {
+                    errorMessage = data.message;
+                } else {
+                    errorMessage = "Tidak dapat menerima respons dari server AI. Silakan periksa koneksi server lokal Anda.";
                 }
-            } catch (err) {
-                // Offline or local dev fallback
+            } catch (networkErr) {
+                errorMessage = `Tidak dapat terhubung ke endpoint \`/api/chat\` (${escapeHtml(networkErr.message)}).\n\nPastikan server lokal dijalankan dengan perintah:\n\`\`\`bash\nnode server.js\n\`\`\`\ndan pastikan \`NVIDIA_API_KEY\` telah diatur di file \`.env\`.`;
             }
 
             removeTypingIndicator();
 
             if (aiResponseText) {
-                appendMessage("assistant", aiResponseText);
-                conversationHistory.push({ role: "assistant", content: aiResponseText });
-            } else {
-                // Strategy 2: High-IQ autonomous enterprise knowledge engine
-                const reasoningAnswer = typeof queryKnowledgeBase === "function" 
-                    ? queryKnowledgeBase(text)
-                    : "Maaf, sistem sedang memproses respons. Silakan coba lagi.";
-
                 const bubble = appendMessage("assistant", "");
-                streamTypewriterText(bubble, reasoningAnswer, () => {
-                    conversationHistory.push({ role: "assistant", content: reasoningAnswer });
+                streamTypewriterText(bubble, aiResponseText, () => {
+                    conversationHistory.push({ role: "assistant", content: aiResponseText });
+                });
+            } else if (errorMessage) {
+                const bubble = appendMessage("assistant", "");
+                streamTypewriterText(bubble, errorMessage, () => {
+                    conversationHistory.push({ role: "assistant", content: errorMessage });
                 });
             }
 
         } catch (error) {
             removeTypingIndicator();
-            appendMessage("assistant", `Maaf, terjadi kendala teknis: ${escapeHtml(error.message)}. Mode konsultasi otomatis tetap aktif.`);
+            const bubble = appendMessage("assistant", "");
+            const fallbackText = `Maaf, terjadi kendala saat memproses permintaan: ${escapeHtml(error.message)}`;
+            streamTypewriterText(bubble, fallbackText, () => {
+                conversationHistory.push({ role: "assistant", content: fallbackText });
+            });
         } finally {
             isGenerating = false;
             sendBtn.disabled = false;
