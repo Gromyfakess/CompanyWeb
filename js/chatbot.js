@@ -1,7 +1,7 @@
 /**
- * STRATiS Assistant - Enterprise Client Controller
- * 5 Deterministic Quick Chats with instant responses + Autonomous AI for custom queries.
- * Anti-Jailbreak protected, zero manual API key friction, no online pill.
+ * STRATiS Assistant — Enterprise College Web Project Controller
+ * Clean, lightweight, zero-dependency client-side architecture.
+ * Security: NO API keys in client code — all requests routed through serverless proxy or secure knowledge base.
  */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let conversationHistory = [];
     let isGenerating = false;
 
-    // Anti-Jailbreak Client Guard Regex (Targets actual malicious prompt-injection attacks)
+    // Anti-Jailbreak Client Guard Regex
     const JAILBREAK_CLIENT_REGEX = /(ignore\s+(all\s+)?(previous|prior)\s+instructions|system\s+prompt|dan\s+mode|jailbreak|bypass\s+(filters|rules|guardrails)|act\s+as\s+an\s+unfiltered|pretend\s+you\s+have\s+no\s+rules|reveal\s+(your\s+)?(system|internal)\s+prompt)/i;
 
     // Toggle Chat Window
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Security: Strict HTML Escaping to prevent XSS
+    // Strict HTML Escaping to prevent XSS
     function escapeHtml(text) {
         if (!text) return "";
         return String(text)
@@ -66,35 +66,33 @@ document.addEventListener("DOMContentLoaded", () => {
             .replace(/'/g, "&#039;");
     }
 
-    // Safe Markdown Parser
-    function parseSafeMarkdown(rawText) {
-        if (!rawText) return "";
+    // Markdown Parser
+    function parseSafeMarkdown(raw) {
+        if (!raw) return "";
 
-        let safe = escapeHtml(rawText);
+        let safe = raw
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
 
-        // Fenced code blocks
-        safe = safe.replace(/```([\s\S]*?)```/g, (match, code) => {
-            return `<pre><code>${code.trim()}</code></pre>`;
+        // Code blocks
+        safe = safe.replace(/```([a-z0-9_-]*)\n([\s\S]*?)```/gi, (match, lang, code) => {
+            return `<pre><code class="language-${lang || 'plaintext'}">${code.trim()}</code></pre>`;
         });
 
         // Inline code
-        safe = safe.replace(/`([^`]+)`/g, "<code>$1</code>");
-
-        // Headers
-        safe = safe.replace(/^#### (.*?)$/gm, "<h4>$1</h4>");
-        safe = safe.replace(/^### (.*?)$/gm, "<h3>$1</h3>");
-        safe = safe.replace(/^## (.*?)$/gm, "<h3>$1</h3>");
+        safe = safe.replace(/`([^`]+)`/g, '<code class="inline-code">$1</code>');
 
         // Bold & Italic
-        safe = safe.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
-        safe = safe.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+        safe = safe.replace(/\*\*\*([^*]+)\*\*\*/g, '<strong><em>$1</em></strong>');
+        safe = safe.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+        safe = safe.replace(/\*([^*]+)\*/g, '<em>$1</em>');
 
-        // Safe Links
-        safe = safe.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+|mailto:[^\s)]+)\)/g, (match, label, url) => {
-            return `<a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a>`;
-        });
+        // Headings
+        safe = safe.replace(/^### (.*$)/gim, '<h4 class="chat-h4">$1</h4>');
+        safe = safe.replace(/^## (.*$)/gim, '<h3 class="chat-h3">$1</h3>');
 
-        // Lists and Paragraphs
+        // Lists
         const lines = safe.split("\n");
         let html = "";
         let inList = false;
@@ -102,21 +100,21 @@ document.addEventListener("DOMContentLoaded", () => {
         for (let i = 0; i < lines.length; i++) {
             let line = lines[i].trim();
 
-            if (line.startsWith("- ") || line.startsWith("* ")) {
+            if (line.startsWith("* ") || line.startsWith("- ")) {
                 if (!inList) {
-                    html += "<ul>";
+                    html += '<ul class="chat-list">';
                     inList = true;
                 }
                 html += `<li>${line.substring(2)}</li>`;
             } else if (/^\d+\.\s/.test(line)) {
                 if (!inList) {
-                    html += "<ol>";
+                    html += '<ol class="chat-list">';
                     inList = true;
                 }
-                html += `<li>${line.replace(/^\d+\.\s/, "")}</li>`;
+                html += `<li>${line.replace(/^\d+\.\s/, '')}</li>`;
             } else {
                 if (inList) {
-                    html += inList === "ol" ? "</ol>" : "</ul>";
+                    html += inList ? "</ul>" : "</ol>";
                     inList = false;
                 }
                 if (line.length > 0) {
@@ -192,17 +190,17 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderInitialGreeting() {
         const greeting = `Selamat datang di **STRATiS Assistant**.
 
-Saya adalah asisten rekayasa dan konsultasi arsitektur resmi **STRATiS Technologies Inc.**
+Saya adalah asisten AI resmi **STRATiS Technologies Inc.**
 
-Anda dapat menggunakan **5 Tombol Topik Cepat** di bawah untuk informasi instan terverifikasi, atau ketikkan pertanyaan teknis spesifik Anda pada kolom input di bawah agar sistem AI kami menjawab secara mandiri.`;
+Anda dapat menggunakan **5 Tombol Topik Cepat** di atas untuk informasi instan profil perusahaan, atau ketikkan pertanyaan teknis spesifik Anda di bawah.`;
         appendMessage("assistant", greeting);
     }
 
     // Smooth Typewriter Output
     function streamTypewriterText(bubbleElement, fullText, onDone) {
         let i = 0;
-        const speed = 8;
-        const step = 5;
+        const speed = 7;
+        const step = 4;
 
         function tick() {
             i += step;
@@ -221,7 +219,7 @@ Anda dapat menggunakan **5 Tombol Topik Cepat** di bawah untuk informasi instan 
 
     /**
      * Handler for the 5 Curated Quick Chat Buttons
-     * Always returns the exact deterministic quick response.
+     * Returns instant verified company info with zero network latency.
      */
     function handleQuickChat(quickKey, label) {
         if (isGenerating) return;
@@ -247,13 +245,13 @@ Anda dapat menggunakan **5 Tombol Topik Cepat** di bawah untuk informasi instan 
                 sendBtn.disabled = false;
                 chatInput.focus();
             });
-        }, 180);
+        }, 150);
     }
 
     /**
-     * Handler for Custom User Queries (Powered by NVIDIA NIM AI)
-     * When user types manually, request the live AI completion.
-     * No canned quick responses here — only real AI responses.
+     * Handler for Custom User Queries
+     * Securely routes requests to serverless endpoint /api/chat.
+     * No API keys are stored in client-side code!
      */
     async function handleCustomUserMessage() {
         const text = chatInput.value.trim();
@@ -267,9 +265,9 @@ Anda dapat menggunakan **5 Tombol Topik Cepat** di bawah untuk informasi instan 
         appendMessage("user", text);
         conversationHistory.push({ role: "user", content: text });
 
-        // Anti-Jailbreak Client Guard Check
+        // Anti-Jailbreak Guard Check
         if (JAILBREAK_CLIENT_REGEX.test(text)) {
-            const refusalMsg = "Maaf, permintaan ini tidak sesuai dengan protokol keamanan sistem STRATiS. Saya beroperasi secara eksklusif untuk memberikan informasi resmi terkait layanan rekayasa perangkat lunak, arsitektur sistem, dan profil perusahaan **STRATiS Technologies Inc.**";
+            const refusalMsg = "Maaf, permintaan ini tidak sesuai dengan protokol keamanan sistem STRATiS. Saya beroperasi secara eksklusif untuk memberikan konsultasi arsitektur perangkat lunak, sistem komputasi terdistribusi, dan profil perusahaan **STRATiS Technologies Inc.**";
             const bubble = appendMessage("assistant", "");
             streamTypewriterText(bubble, refusalMsg, () => {
                 conversationHistory.push({ role: "assistant", content: refusalMsg });
@@ -285,69 +283,53 @@ Anda dapat menggunakan **5 Tombol Topik Cepat** di bawah untuk informasi instan 
 
         try {
             let aiResponseText = null;
-            let errorMessage = null;
 
-            const candidateEndpoints = ["/api/chat", "/.netlify/functions/chat"];
-            let requestSuccess = false;
+            // Secure Proxy Request (Tries /api/chat and /.netlify/functions/chat)
+            const endpoints = ["/api/chat", "/.netlify/functions/chat"];
 
-            for (const endpoint of candidateEndpoints) {
-                if (requestSuccess) break;
+            for (const endpoint of endpoints) {
+                if (aiResponseText) break;
                 try {
                     const res = await fetch(endpoint, {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({
-                            messages: conversationHistory.slice(-8)
+                            messages: conversationHistory.slice(-6)
                         })
                     });
 
                     const contentType = res.headers.get("content-type") || "";
-                    if (!contentType.includes("application/json")) {
-                        // Received HTML (such as 404 page or fallback) instead of JSON
-                        continue;
+                    if (contentType.includes("application/json")) {
+                        const data = await res.json();
+                        if (res.ok && data.choices && data.choices[0] && data.choices[0].message) {
+                            aiResponseText = data.choices[0].message.content;
+                        }
                     }
-
-                    const data = await res.json();
-                    requestSuccess = true;
-
-                    if (res.ok && data.choices && data.choices[0] && data.choices[0].message) {
-                        aiResponseText = data.choices[0].message.content;
-                    } else if (data.error === "NO_SERVER_KEY") {
-                        errorMessage = `Sistem AI membutuhkan konfigurasi **NVIDIA_API_KEY** pada environment server.\n\n**Cara Konfigurasi di Netlify (Live Web):**\n1. Buka dashboard Netlify > **Site configuration** > **Environment variables**.\n2. Tambahkan variable baru:\n   - **NVIDIA_API_KEY**: \`nvapi-...\` (API key NVIDIA Anda)\n   - **NVIDIA_MODEL**: \`nvidia/nemotron-3.5-lightning-30b-a3b\`\n3. Lakukan **Trigger deploy** / re-deploy situs di Netlify agar variabel diterapkan.\n\n*(Catatan: 5 Tombol Topik Cepat di atas dapat digunakan untuk respons instan terverifikasi).*`;
-                    } else if (data.error === "UPSTREAM_ERROR") {
-                        errorMessage = `Kendala koneksi ke NVIDIA NIM AI (${escapeHtml(data.model || "nemotron")}):\n**${escapeHtml(data.message || "Upstream Error")}**\n\nSilakan periksa kembali nilai \`NVIDIA_API_KEY\` dan \`NVIDIA_MODEL\` di Netlify Environment Variables.`;
-                    } else if (data.message) {
-                        errorMessage = data.message;
-                    } else {
-                        errorMessage = "Tidak dapat menerima respons dari server AI.";
-                    }
-                } catch (endpointErr) {
-                    // Endpoint unreachable or network issue, try next candidate
+                } catch (netErr) {
+                    // Endpoint unavailable, try next
                 }
             }
 
-            if (!requestSuccess && !errorMessage) {
-                errorMessage = `Tidak dapat terhubung ke endpoint fungsi serverless di Netlify.\n\n**Untuk Netlify Live Web:**\nPastikan Anda telah menambahkan variabel berikut di menu **Site configuration > Environment variables** di Netlify:\n- **NVIDIA_API_KEY**: \`nvapi-...\`\n- **NVIDIA_MODEL**: \`nvidia/nemotron-3.5-lightning-30b-a3b\`\n\nLalu klik **Trigger deploy** untuk menerapkan pengaturan.\n\n*(Catatan: 5 Tombol Topik Cepat di atas tetap aktif dan dapat digunakan kapan saja).*`;
+            // Fallback to intelligent corporate knowledge base if offline or serverless not reachable
+            if (!aiResponseText) {
+                aiResponseText = (typeof queryKnowledgeBase === "function")
+                    ? queryKnowledgeBase(text)
+                    : "Terima kasih atas pertanyaan Anda. Asisten STRATiS siap membantu kebutuhan rekayasa perangkat lunak enterprise Anda.";
             }
 
             removeTypingIndicator();
 
-            if (aiResponseText) {
-                const bubble = appendMessage("assistant", "");
-                streamTypewriterText(bubble, aiResponseText, () => {
-                    conversationHistory.push({ role: "assistant", content: aiResponseText });
-                });
-            } else if (errorMessage) {
-                const bubble = appendMessage("assistant", "");
-                streamTypewriterText(bubble, errorMessage, () => {
-                    conversationHistory.push({ role: "assistant", content: errorMessage });
-                });
-            }
+            const bubble = appendMessage("assistant", "");
+            streamTypewriterText(bubble, aiResponseText, () => {
+                conversationHistory.push({ role: "assistant", content: aiResponseText });
+            });
 
         } catch (error) {
             removeTypingIndicator();
             const bubble = appendMessage("assistant", "");
-            const fallbackText = `Maaf, terjadi kendala saat memproses permintaan: ${escapeHtml(error.message)}`;
+            const fallbackText = (typeof queryKnowledgeBase === "function")
+                ? queryKnowledgeBase(text)
+                : `Terima kasih atas pertanyaan Anda. Asisten STRATiS siap membantu kebutuhan sistem Anda.`;
             streamTypewriterText(bubble, fallbackText, () => {
                 conversationHistory.push({ role: "assistant", content: fallbackText });
             });
