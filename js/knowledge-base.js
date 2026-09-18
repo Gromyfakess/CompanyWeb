@@ -200,9 +200,22 @@ function queryKnowledgeBase(userQuery) {
 
   const has = (...terms) => terms.some(term => q.includes(term));
 
-  // Leadership queries
-  if (has("leadership", "direksi", "tim", "siapa di balik", "david hendrawan", "katherine", "fiona", "ceo", "cto", "architect")) {
-    return `### Tim Kepemimpinan & Arsitektur STRATiS\n\n**STRATiS Technologies Inc.** dipimpin oleh para profesional rekayasa perangkat lunak dan arsitek sistem terdistribusi:\n\n- **David Hendrawan** — Chief Executive Officer (CEO) // Founder\n- **Katherine Laurent** — Principal Cloud Architect\n- **Dr. Fiona Cellestine** — Head of AI & Cognitive Systems\n\nKepemimpinan kami memadukan visi ekspansi bisnis dengan standar rekayasa kode modular enterprise bebas cacat dan tata kelola internasional.`;
+  // Dedicated Executive & Architect Profiles
+  if (has("katherine", "laurent", "cloud architect")) {
+    return `### Katherine Laurent — Principal Cloud Architect\n\n**Katherine Laurent** adalah Principal Cloud Architect di **STRATiS Technologies Inc.**\n\n**Peran & Spesialisasi Utama**:\n- **Distributed Cloud Mesh**: Memimpin perancangan dan implementasi arsitektur cloud terdistribusi multi-region dengan latensi sub-milidetik.\n- **Kubernetes & Container Orchestration**: Merancang orkestrasi cluster skala besar dengan toleransi kegagalan otomatis (*self-healing infrastructure*).\n- **High Availability & SLA**: Memastikan sistem beroperasi dengan reliabilitas 99.999% dan kapabilitas zero-downtime rolling deployment.\n- **Network Security & eBPF**: Mengintegrasikan protokol keamanan mTLS berbasis SPIFFE/SPIRE pada lapisan transport jaringan.\n\nBeliau memimpin rekayasa infrastruktur yang mengoperasikan platform unggulan STRATiS seperti **AetherMesh**.`;
+  }
+
+  if (has("david", "david hendrawan", "founder")) {
+    return `### David Hendrawan — Chief Executive Officer (CEO) & Founder\n\n**David Hendrawan** adalah Founder dan CEO dari **STRATiS Technologies Inc.**\n\n**Peran & Visi Kepemimpinan**:\n- **Visi Strategis & Ekspansi**: Mengarahkan visi perusahaan dalam membangun infrastruktur cloud terdistribusi dan platform perangkat lunak enterprise berstandar global.\n- **Tata Kelola Arsitektur**: Mengawal penerapan standar rekayasa *modular enterprise architecture* yang tangguh, modular, dan teruji.\n- **Kemitraan Korporasi**: Membina hubungan strategis dengan para mitra perbankan, penyedia cloud, dan institusi enterprise internasional.`;
+  }
+
+  if (has("fiona", "fiona cellestine", "dr fiona", "head of ai")) {
+    return `### Dr. Fiona Cellestine — Head of AI & Cognitive Systems\n\n**Dr. Fiona Cellestine** memimpin divisi *AI & Cognitive Systems* di **STRATiS Technologies Inc.**\n\n**Peran & Riset Utama**:\n- **Cognitive Intelligence Engine**: Memimpin riset dan pengembangan platform penalaran kognitif cerdas untuk analitik enterprise skala besar.\n- **Enterprise LLM & RAG Pipelines**: Mengembangkan pipeline inference berlatensi rendah dengan integrasi data terdistribusi yang aman.\n- **Automated Anomaly Detection**: Merancang model pendeteksi anomali operasional real-time pada jaringan sistem cloud.`;
+  }
+
+  // General Leadership queries
+  if (has("leadership", "direksi", "tim", "siapa di balik", "ceo", "cto", "architect")) {
+    return `### Tim Kepemimpinan & Arsitektur STRATiS\n\n**STRATiS Technologies Inc.** dipimpin oleh para profesional rekayasa perangkat lunak dan arsitek sistem terdistribusi:\n\n- **David Hendrawan** — Chief Executive Officer (CEO) & Founder\n- **Katherine Laurent** — Principal Cloud Architect\n- **Dr. Fiona Cellestine** — Head of AI & Cognitive Systems\n\nKepemimpinan kami memadukan visi ekspansi bisnis dengan standar rekayasa kode modular enterprise bebas cacat dan tata kelola internasional.`;
   }
 
   // Logo philosophy

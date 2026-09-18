@@ -305,14 +305,4 @@ document.addEventListener("DOMContentLoaded", () => {
             closeModal();
         }
     });
-
-    // 11. Interactive Contact Section Assistant Launcher
-    const contactAiBtn = document.getElementById("contactAiLaunchBtn");
-    if (contactAiBtn) {
-        contactAiBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            const chatbotLauncher = document.getElementById("chatbotLauncher");
-            if (chatbotLauncher) chatbotLauncher.click();
-        });
-    }
 });

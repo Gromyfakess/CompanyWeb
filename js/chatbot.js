@@ -51,9 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const isClickInsidePanel = panel.contains(e.target);
         const isClickOnLauncher = launcher && launcher.contains(e.target);
         const isClickOnHeroLaunch = heroQuickLaunch && heroQuickLaunch.contains(e.target);
-        const isClickOnContactLaunch = e.target.closest && e.target.closest("#contactAiLaunchBtn");
 
-        if (!isClickInsidePanel && !isClickOnLauncher && !isClickOnHeroLaunch && !isClickOnContactLaunch) {
+        if (!isClickInsidePanel && !isClickOnLauncher && !isClickOnHeroLaunch) {
             toggleChat(false);
         }
     });
