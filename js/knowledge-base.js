@@ -186,58 +186,18 @@ Anda dapat mengirimkan email langsung ke tim solusi kami atau mengajukan pertany
 const JAILBREAK_REGEX = /(ignore\s+(all\s+)?(previous|prior)\s+instructions|system\s+prompt|dan\s+mode|jailbreak|bypass|act\s+as\s+an\s+unfiltered|pretend\s+you\s+have\s+no\s+rules|reveal\s+(your\s+)?(system|internal)\s+prompt|what\s+model|who\s+trained\s+you|nvidia|nim|nemotron|llama|openai|chatgpt)/i;
 
 /**
- * Intelligent Query Matcher with Anti-Jailbreak Guardrails
- * Used for autonomous AI answering when user types custom questions.
+ * Fallback handler for user manual questions.
+ * All instant answers are strictly triggered via the quick chat buttons.
+ * If remote AI is unreachable, this graceful response is provided.
  */
 function queryKnowledgeBase(userQuery) {
   const raw = String(userQuery || "").trim();
-  const q = raw.toLowerCase();
 
-  // 1. Anti-Jailbreak Protection
+  // Anti-Jailbreak Protection
   if (JAILBREAK_REGEX.test(raw)) {
-    return `Maaf, permintaan ini tidak sesuai dengan protokol keamanan sistem STRATiS. Saya beroperasi secara eksklusif untuk memberikan informasi resmi terkait layanan rekayasa perangkat lunak, arsitektur sistem, dan profil perusahaan **STRATiS Technologies Inc.**`;
+    return `Maaf, permintaan ini tidak sesuai dengan protokol keamanan sistem STRATiS. Saya beroperasi secara eksklusif untuk memberikan informasi resmi terkait layanan rekayasa perangkat lunak, arsitektur sistem, dan solusi teknologi **STRATiS Technologies Inc.**`;
   }
 
-  const has = (...terms) => terms.some(term => q.includes(term));
-
-  // Dedicated Executive & Architect Profiles
-  if (has("katherine", "laurent", "cloud architect")) {
-    return `### Katherine Laurent — Principal Cloud Architect\n\n**Katherine Laurent** adalah Principal Cloud Architect di **STRATiS Technologies Inc.**\n\n**Peran & Spesialisasi Utama**:\n- **Distributed Cloud Mesh**: Memimpin perancangan dan implementasi arsitektur cloud terdistribusi multi-region dengan latensi sub-milidetik.\n- **Kubernetes & Container Orchestration**: Merancang orkestrasi cluster skala besar dengan toleransi kegagalan otomatis (*self-healing infrastructure*).\n- **High Availability & SLA**: Memastikan sistem beroperasi dengan reliabilitas 99.999% dan kapabilitas zero-downtime rolling deployment.\n- **Network Security & eBPF**: Mengintegrasikan protokol keamanan mTLS berbasis SPIFFE/SPIRE pada lapisan transport jaringan.\n\nBeliau memimpin rekayasa infrastruktur yang mengoperasikan platform unggulan STRATiS seperti **AetherMesh**.`;
-  }
-
-  if (has("david", "david hendrawan", "founder")) {
-    return `### David Hendrawan — Chief Executive Officer (CEO) & Founder\n\n**David Hendrawan** adalah Founder dan CEO dari **STRATiS Technologies Inc.**\n\n**Peran & Visi Kepemimpinan**:\n- **Visi Strategis & Ekspansi**: Mengarahkan visi perusahaan dalam membangun infrastruktur cloud terdistribusi dan platform perangkat lunak enterprise berstandar global.\n- **Tata Kelola Arsitektur**: Mengawal penerapan standar rekayasa *modular enterprise architecture* yang tangguh, modular, dan teruji.\n- **Kemitraan Korporasi**: Membina hubungan strategis dengan para mitra perbankan, penyedia cloud, dan institusi enterprise internasional.`;
-  }
-
-  if (has("fiona", "fiona cellestine", "dr fiona", "head of ai")) {
-    return `### Dr. Fiona Cellestine — Head of AI & Cognitive Systems\n\n**Dr. Fiona Cellestine** memimpin divisi *AI & Cognitive Systems* di **STRATiS Technologies Inc.**\n\n**Peran & Riset Utama**:\n- **Cognitive Intelligence Engine**: Memimpin riset dan pengembangan platform penalaran kognitif cerdas untuk analitik enterprise skala besar.\n- **Enterprise LLM & RAG Pipelines**: Mengembangkan pipeline inference berlatensi rendah dengan integrasi data terdistribusi yang aman.\n- **Automated Anomaly Detection**: Merancang model pendeteksi anomali operasional real-time pada jaringan sistem cloud.`;
-  }
-
-  // General Leadership queries
-  if (has("leadership", "direksi", "tim", "siapa di balik", "ceo", "cto", "architect")) {
-    return `### Tim Kepemimpinan & Arsitektur STRATiS\n\n**STRATiS Technologies Inc.** dipimpin oleh para profesional rekayasa perangkat lunak dan arsitek sistem terdistribusi:\n\n- **David Hendrawan** — Chief Executive Officer (CEO) & Founder\n- **Katherine Laurent** — Principal Cloud Architect\n- **Dr. Fiona Cellestine** — Head of AI & Cognitive Systems\n\nKepemimpinan kami memadukan visi ekspansi bisnis dengan standar rekayasa kode modular enterprise bebas cacat dan tata kelola internasional.`;
-  }
-
-  // Logo philosophy
-  if (has("logo", "arti logo", "makna logo", "filosofi", "ethnocentric", "warna biru", "speed line", "swoosh", "slash")) {
-    return `### Filosofi Identitas Wordmark STRATiS\n\nIdentitas visual **STRATiS** memadukan 4 elemen geometri arsitektural:\n\n1. **Kemiringan Huruf & Speed Lines**: Melambangkan **Velocity** — pergerakan cepat dan inovasi dinamis yang terus melaju ke depan.\n2. **Garis Potong Tajam (Slash) pada 'S'**: Merepresentasikan **Presisi** tinggi dan ketajaman dalam pemisahan arsitektur modular.\n3. **Garis Lengkung (Swoosh) pada 'R'**: Melambangkan fondasi arsitektur yang kokoh serta alur kerja yang mulus (**Seamless Flow**).\n4. **Solid Electric Blue (#0056d6)**: Menegaskan keamanan enterprise, reliabilitas sistem, dan profesionalisme teruji.`;
-  }
-
-  // Modular Architecture & Engineering
-  if (has("arsitektur", "modular", "backend", "microservices", "performa", "throughput", "desain sistem", "standar")) {
-    return `### Standar Arsitektur Enterprise di STRATiS\n\nDi STRATiS, kami menerapkan prinsip **Modular Enterprise Architecture** yang memisahkan tanggung jawab sistem secara terstruktur:\n\n1. **Core Business Logic**: Domain aturan bisnis yang independen dari framework dan database luar.\n2. **Orchestration & Workflow**: Alur proses transaksi dan eksekusi event terdistribusi.\n3. **Data Abstraction**: Manajemen akses basis data berkinerja tinggi dengan integritas ACID mutlak.\n4. **Edge Delivery & Gateway**: Endpoint API berlatensi sub-milidetik dengan proteksi keamanan terpadu.\n\n**Keunggulan Utama**: Latensi respon rata-rata di bawah 10ms, skalabilitas beban tinggi, kemudahan pengujian unit otomatis, dan ketahanan sistem jangka panjang.`;
-  }
-
-  // Database optimization
-  if (has("database", "mysql", "postgres", "postgresql", "redis", "query", "indexing", "cache")) {
-    return `### Solusi Data Tier & Database Optimization\n\nSTRATiS merekayasa lapisan data tier untuk menangani lonjakan transaksi finansial dan data stream tinggi:\n\n- **Clustered Indexing**: Mengurangi full table scan menjadi direct B-tree lookup dengan latensi query rata-rata 1.2ms.\n- **Distributed Redis Cache**: Menampung session dan data referensi dengan rasio hit mencapai 98.6%.\n- **ACID Concurrency Control**: Menjamin integritas data mutlak tanpa dirty read pada concurrent transactions.\n- **Multiplexed Connection Pooling**: Mengoptimalkan koneksi database menggunakan thread-safe asynchronous worker pools.`;
-  }
-
-  // Greetings
-  if (has("halo", "hai", "hello", "hi", "selamat pagi", "selamat siang", "selamat malam", "pagi", "siang", "malam")) {
-    return `Halo! Selamat datang di **STRATiS Assistant**.\n\nSaya siap membantu Anda mengeksplorasi:\n- **Profil & Visi STRATiS Technologies**\n- **Layanan Rekayasa Sistem & Cloud Infrastructure**\n- **Kapabilitas AI & Sistem Cerdas Enterprise**\n- **Portfolio Proyek Produksi (AetherMesh, NexusCore, dll)**\n- **Saluran Komunikasi Resmi & Kemitraan**\n\nSilakan pilih salah satu rekomendasi cepat di bawah atau ajukan pertanyaan spesifik Anda secara langsung!`;
-  }
-
-  // Autonomous Dynamic Reasoning Fallback
-  return `Terima kasih atas pertanyaan Anda terkait **"${raw}"**.\n\nSebagai asisten resmi **STRATiS Technologies Inc.**, sistem kami berfokus pada rekayasa arsitektur perangkat lunak enterprise, infrastruktur cloud terdistribusi, dan platform analitik kognitif yang aman.\n\nUntuk informasi terstruktur, Anda dapat memilih rekomendasi instan di bawah, atau silakan jelaskan spesifikasi kebutuhan sistem yang ingin Anda diskusikan.`;
+  // Graceful response when remote AI inference is unavailable
+  return `Terima kasih atas pertanyaan Anda terkait **"${raw}"**.\n\nSistem AI STRATiS melayani konsultasi interaktif seputar arsitektur enterprise, cloud mesh terdistribusi, dan platform kognitif.\n\nUntuk respon instan terverifikasi mengenai profil, layanan, teknologi, dan portfolio STRATiS, silakan gunakan salah satu rekomendasi cepat di bawah, atau hubungi kami melalui **solutions@stratis-tech.io**.`;
 }
