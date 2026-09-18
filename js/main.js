@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (header) {
             if (scrollTop > 30) {
                 header.style.background = "rgba(10, 12, 16, 0.94)";
-                header.style.borderColor = "rgba(56, 189, 248, 0.25)";
+                header.style.borderColor = "rgba(255, 255, 255, 0.12)";
             } else {
                 header.style.background = "rgba(12, 14, 19, 0.85)";
                 header.style.borderColor = "rgba(255, 255, 255, 0.08)";
@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const projectData = {
         "aethermesh": {
             title: "AetherMesh — Distributed Multi-Cloud Service Mesh & Edge Gateway",
-            category: "Distributed Cloud Infrastructure // High-Concurrency Network Engine",
+            category: "Distributed Cloud Infrastructure &bull; High-Concurrency Network Engine",
             image: "images/projects/aethermesh.jpg",
             summary: "High-concurrency edge API gateway dan zero-trust service mesh berskala multi-region global yang menangani routing mikroarsitektur dengan latensi jaringan sub-milidetik untuk mencapai efisiensi throughput ekstrem tanpa overhead proxy tradisional.",
             specs: [
@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         "nexuscore": {
             title: "NexusCore — Real-Time Transaction Engine & Ledger Reconciliation",
-            category: "Core Financial Architecture // Distributed Event-Sourced Ledger",
+            category: "Core Financial Architecture &bull; Distributed Event-Sourced Ledger",
             image: "images/projects/nexuscore.jpg",
             summary: "Mesin kliring transaksi finansial dan rekonsiliasi pembukuan real-time berkinerja tinggi untuk institusi perbankan dan fintech global dengan model Event Sourcing dan snapshot in-memory terdistribusi, menjamin penyelesaian transaksi ACID mutlak tanpa dirty read.",
             specs: [
@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         "stratis-ai": {
             title: "STRATiS Cognitive Intelligence Hub",
-            category: "Enterprise AI Infrastructure // Neural Orchestration",
+            category: "Enterprise AI Infrastructure &bull; Neural Orchestration",
             image: "images/projects/stratis-ai-hub.jpg",
             summary: "Platform orkestrasi inferensi cerdas tingkat lanjut yang menghubungkan microservices korporat dengan kluster neural internal STRATiS. Dilengkapi visualisasi neural pathways, pemantauan latensi inferensi real-time, dan retrieval-augmented generation (RAG) aman berbasis enkripsi tingkat enterprise.",
             specs: [
@@ -233,7 +233,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         "sentinel": {
             title: "Sentinel Cloud Gateway & Cyber Telemetry",
-            category: "Cloud Microservices // High Concurrency Gateway",
+            category: "Cloud Microservices &bull; High Concurrency Gateway",
             image: "images/projects/sentinel-gateway.jpg",
             summary: "API Gateway mikroarsitektur berkinerja tinggi yang menangani perutean request, rate limiting adaptif berbasis Redis, mitigasi serangan DDoS, dan inspeksi WAF dengan latensi jaringan sub-milidetik menggunakan arsitektur mikroarsitektur modern.",
             specs: [
@@ -261,7 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const p = projectData[projectId];
         if (!p) return;
 
-        modalCategory.textContent = `// ${p.category}`;
+        modalCategory.innerHTML = p.category;
         modalTitle.textContent = p.title;
         modalImage.src = p.image;
         modalImage.alt = p.title;

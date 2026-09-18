@@ -200,9 +200,9 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderInitialGreeting() {
         const greeting = `Selamat datang di **STRATiS Assistant**.
 
-Saya adalah asisten AI resmi **STRATiS Technologies Inc.**
+Saya adalah asisten rekayasa sistem resmi **STRATiS Technologies Inc.**
 
-Anda dapat menggunakan **5 Tombol Topik Cepat** di atas untuk informasi instan profil perusahaan, atau ketikkan pertanyaan teknis spesifik Anda di bawah.`;
+Pilih rekomendasi di bawah untuk jawaban instan seputar arsitektur dan kapabilitas perusahaan, atau ketikkan pertanyaan teknis Anda secara langsung.`;
         appendMessage("assistant", greeting);
     }
 

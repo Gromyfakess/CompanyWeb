@@ -76,8 +76,8 @@
                     <!-- Left Hero Content -->
                     <div class="col-lg-6">
                         <div class="hero-badge-pill">
-                            <i class="fa-solid fa-server text-cyan" aria-hidden="true"></i>
-                            <span>STRATiS TECHNOLOGIES // SYSTEMS &amp; INFRASTRUCTURE LAB</span>
+                            <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+                            <span>STRATiS TECHNOLOGIES &bull; SYSTEMS &amp; INFRASTRUCTURE LAB</span>
                         </div>
 
                         <h1 class="hero-title">
@@ -96,7 +96,7 @@
                                 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                             </a>
                             <button type="button" class="btn-enterprise-secondary" id="heroAiLaunchBtn">
-                                <i class="fa-solid fa-terminal text-cyan" aria-hidden="true"></i>
+                                <i class="fa-solid fa-terminal" aria-hidden="true"></i>
                                 <span>Buka STRATiS Assistant</span>
                             </button>
                         </div>
@@ -105,20 +105,20 @@
                         <div class="hero-sla-strip">
                             <div class="sla-item">
                                 <span class="sla-number">&lt; 1.2ms</span>
-                                <span class="sla-label font-mono">// Median Index Latency</span>
+                                <span class="sla-label font-mono">Median Latency (p99)</span>
                             </div>
                             <div class="sla-item">
                                 <span class="sla-number">99.99%</span>
-                                <span class="sla-label font-mono">// Architecture SLA</span>
+                                <span class="sla-label font-mono">Availability SLA</span>
                             </div>
                             <div class="sla-item">
                                 <span class="sla-number">100%</span>
-                                <span class="sla-label font-mono">// Modular Architecture Strict</span>
+                                <span class="sla-label font-mono">Modular Architecture Strict</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Right Hero: Live Interactive Infrastructure Telemetry Console -->
+                    <!-- Right Hero: STRATiS Enterprise Architecture Blueprint & System Topology -->
                     <div class="col-lg-6">
                         <div class="arch-console-box" id="archConsole">
                             <div class="console-header-bar">
@@ -128,22 +128,22 @@
                                     <span class="window-dot"></span>
                                 </div>
                                 <div class="console-title font-mono">
-                                    <i class="fa-solid fa-network-wired text-cyan"></i>
-                                    <span>stratis-runtime // telemetry-v2.8</span>
+                                    <i class="fa-solid fa-layer-group"></i>
+                                    <span>STRATiS Multi-Region Architecture Topology</span>
                                 </div>
-                                <div class="font-mono text-cyan" style="font-size: 0.72rem;">STATUS: OPERATIONAL</div>
+                                <span class="console-status-badge font-mono">TOPOLOGY VERIFIED</span>
                             </div>
 
                             <!-- Interactive Console Tabs -->
                             <div class="console-nav-tabs">
                                 <button type="button" class="console-tab-btn active" data-tab="tabGateway">
-                                    <i class="fa-solid fa-server"></i> Core API Gateway
+                                    <i class="fa-solid fa-server"></i> Core Architecture
                                 </button>
                                 <button type="button" class="console-tab-btn" data-tab="tabMesh">
-                                    <i class="fa-solid fa-diagram-project"></i> Service Mesh (eBPF)
+                                    <i class="fa-solid fa-diagram-project"></i> Multi-Region Mesh
                                 </button>
                                 <button type="button" class="console-tab-btn" data-tab="tabDb">
-                                    <i class="fa-solid fa-database"></i> Clustered Data Tier
+                                    <i class="fa-solid fa-database"></i> Distributed Data Tier
                                 </button>
                             </div>
 
@@ -154,25 +154,25 @@
                                 <div class="console-tab-content active" id="tabGateway">
                                     <div class="telemetry-metric-row">
                                         <div class="telemetry-card-mini">
-                                            <div class="label">// THROUGHPUT CAPACITY</div>
-                                            <div class="val text-cyan">54,000 req/s</div>
+                                            <div class="label">THROUGHPUT CAPACITY</div>
+                                            <div class="val font-mono">54,000 req/s</div>
                                         </div>
                                         <div class="telemetry-card-mini">
-                                            <div class="label">// MEDIAN RESPONSE TIME</div>
-                                            <div class="val" style="color: #10b981;">0.85 ms (p99: 1.4ms)</div>
+                                            <div class="label">MEDIAN RESPONSE TIME</div>
+                                            <div class="val font-mono" style="color: #10b981;">0.85 ms (p99: 1.4ms)</div>
                                         </div>
                                     </div>
                                     <div class="architecture-layer-list">
                                         <div class="arch-layer-pill">
-                                            <span class="layer-name"><i class="fa-solid fa-layer-group text-cyan"></i> 01. Domain Core</span>
-                                            <span class="layer-status">Pure Logic / Isolated</span>
+                                            <span class="layer-name"><i class="fa-solid fa-layer-group"></i> Stratum 01 &bull; Core Domain Engine</span>
+                                            <span class="layer-status">Pure Logic / Decoupled</span>
                                         </div>
                                         <div class="arch-layer-pill">
-                                            <span class="layer-name"><i class="fa-solid fa-arrows-split-up-and-left text-cyan"></i> 02. Transactional Interactors</span>
-                                            <span class="layer-status">Transactional Flow</span>
+                                            <span class="layer-name"><i class="fa-solid fa-arrows-split-up-and-left"></i> Stratum 02 &bull; Transactional Interactors</span>
+                                            <span class="layer-status">ACID Orchestration</span>
                                         </div>
                                         <div class="arch-layer-pill">
-                                            <span class="layer-name"><i class="fa-solid fa-server text-cyan"></i> 03. High-Throughput Delivery</span>
+                                            <span class="layer-name"><i class="fa-solid fa-network-wired"></i> Stratum 03 &bull; High-Throughput Delivery</span>
                                             <span class="layer-status">Zero Allocations / Native</span>
                                         </div>
                                     </div>
@@ -182,25 +182,25 @@
                                 <div class="console-tab-content" id="tabMesh">
                                     <div class="telemetry-metric-row">
                                         <div class="telemetry-card-mini">
-                                            <div class="label">// ACTIVE MESH NODES</div>
-                                            <div class="val text-cyan">148 Multi-Region Pods</div>
+                                            <div class="label">MULTI-REGION CLUSTERS</div>
+                                            <div class="val font-mono">148 Dedicated Pods</div>
                                         </div>
                                         <div class="telemetry-card-mini">
-                                            <div class="label">// MUTUAL TLS ENCRYPTION</div>
-                                            <div class="val" style="color: #38bdf8;">SPIFFE/SPIRE 100%</div>
+                                            <div class="label">MUTUAL TLS ENCRYPTION</div>
+                                            <div class="val font-mono">SPIFFE/SPIRE 100%</div>
                                         </div>
                                     </div>
                                     <div class="architecture-layer-list">
                                         <div class="arch-layer-pill">
-                                            <span class="layer-name"><i class="fa-solid fa-shield-halved text-cyan"></i> Kernel eBPF Acceleration</span>
-                                            <span class="layer-status">Direct Packet Dispatch</span>
+                                            <span class="layer-name"><i class="fa-solid fa-shield-halved"></i> Kernel eBPF Packet Routing</span>
+                                            <span class="layer-status">Direct Dispatch</span>
                                         </div>
                                         <div class="arch-layer-pill">
-                                            <span class="layer-name"><i class="fa-solid fa-route text-cyan"></i> Adaptive Circuit Breaking</span>
+                                            <span class="layer-name"><i class="fa-solid fa-route"></i> Adaptive Circuit Breaking</span>
                                             <span class="layer-status">Failover &lt; 20ms</span>
                                         </div>
                                         <div class="arch-layer-pill">
-                                            <span class="layer-name"><i class="fa-solid fa-chart-line text-cyan"></i> OpenTelemetry Ingestion</span>
+                                            <span class="layer-name"><i class="fa-solid fa-chart-line"></i> OpenTelemetry Telemetry Mesh</span>
                                             <span class="layer-status">Distributed Traces</span>
                                         </div>
                                     </div>
@@ -210,25 +210,25 @@
                                 <div class="console-tab-content" id="tabDb">
                                     <div class="telemetry-metric-row">
                                         <div class="telemetry-card-mini">
-                                            <div class="label">// REDIS CACHE HIT RATIO</div>
-                                            <div class="val" style="color: #10b981;">98.6% In-Memory</div>
+                                            <div class="label">CACHE HIT RATIO</div>
+                                            <div class="val font-mono" style="color: #10b981;">98.6% In-Memory</div>
                                         </div>
                                         <div class="telemetry-card-mini">
-                                            <div class="label">// POSTGRESQL WAL REPLICATION</div>
-                                            <div class="val text-cyan">&lt; 15ms Replica Lag</div>
+                                            <div class="label">WAL REPLICATION LAG</div>
+                                            <div class="val font-mono">&lt; 15ms Replica Lag</div>
                                         </div>
                                     </div>
                                     <div class="architecture-layer-list">
                                         <div class="arch-layer-pill">
-                                            <span class="layer-name"><i class="fa-solid fa-database text-cyan"></i> Clustered Relational Indexes</span>
+                                            <span class="layer-name"><i class="fa-solid fa-database"></i> Partitioned Clustered Indexes</span>
                                             <span class="layer-status">B-Tree Optimizations</span>
                                         </div>
                                         <div class="arch-layer-pill">
-                                            <span class="layer-name"><i class="fa-solid fa-lock text-cyan"></i> ACID Concurrency Control</span>
+                                            <span class="layer-name"><i class="fa-solid fa-lock"></i> ACID Concurrency Control</span>
                                             <span class="layer-status">Zero Dirty Reads</span>
                                         </div>
                                         <div class="arch-layer-pill">
-                                            <span class="layer-name"><i class="fa-solid fa-network-wired text-cyan"></i> Multiplexed Connection Pool</span>
+                                            <span class="layer-name"><i class="fa-solid fa-diagram-project"></i> Multiplexed Connection Pool</span>
                                             <span class="layer-status">Thread-Safe Worker Pool</span>
                                         </div>
                                     </div>
@@ -247,7 +247,7 @@
              ======================================================== -->
         <section id="about" class="content-section">
             <div class="main-wrapper">
-                <span class="section-tag">// 01. Corporate Profile</span>
+                <span class="section-tag">CORPORATE OVERVIEW</span>
                 <h2 class="section-headline">Tentang STRATiS Technologies</h2>
                 <p class="section-desc">
                     Mengenal STRATiS Technologies Inc. Entitas rekayasa perangkat lunak enterprise dan arsitektur komputasi awan berkinerja tinggi, 
@@ -295,7 +295,7 @@
                 <!-- 4 Engineering Core Values -->
                 <div class="values-grid">
                     <div class="value-card">
-                        <span class="value-num font-mono">01 // PRECISION</span>
+                        <span class="value-num font-mono">01 &bull; PRECISION</span>
                         <h4 class="value-title">Presisi Rekayasa</h4>
                         <p class="value-desc">
                             Terinspirasi dari garis potong tajam (slash) pada huruf 'S' logo STRATiS, mencerminkan ketelitian desain kode, pemisahan domain logic, dan zero-defect implementation.
@@ -303,7 +303,7 @@
                     </div>
 
                     <div class="value-card">
-                        <span class="value-num font-mono">02 // VELOCITY</span>
+                        <span class="value-num font-mono">02 &bull; VELOCITY</span>
                         <h4 class="value-title">Kecepatan &amp; Inovasi</h4>
                         <p class="value-desc">
                             Dilambangkan oleh speed lines di sudut kanan atas wordmark, menegaskan akselerasi inovasi dinamis dan kecepatan delivery sistem ke ranah produksi.
@@ -311,7 +311,7 @@
                     </div>
 
                     <div class="value-card">
-                        <span class="value-num font-mono">03 // SEAMLESS FLOW</span>
+                        <span class="value-num font-mono">03 &bull; CONTINUITY</span>
                         <h4 class="value-title">Alur Mulus Terpadu</h4>
                         <p class="value-desc">
                             Direfleksikan oleh garis lengkung (swoosh) di bagian bawah huruf 'R', menjamin integrasi microservices dan jalur data berjalan mulus tanpa friksi teknis.
@@ -319,7 +319,7 @@
                     </div>
 
                     <div class="value-card">
-                        <span class="value-num font-mono">04 // RESILIENCE</span>
+                        <span class="value-num font-mono">04 &bull; RESILIENCE</span>
                         <h4 class="value-title">Keandalan &amp; Integritas</h4>
                         <p class="value-desc">
                             Dipancarkan oleh karakter huruf tebal dan warna solid sapphire blue (#0056d6) yang melambangkan keamanan sistem, data governance, dan profesionalisme kelas enterprise.
@@ -362,7 +362,7 @@
              ======================================================== -->
         <section id="services" class="content-section">
             <div class="main-wrapper">
-                <span class="section-tag">// 02. Engineering Capabilities</span>
+                <span class="section-tag">CORE CAPABILITIES</span>
                 <h2 class="section-headline">Layanan &amp; Kapabilitas Solusi</h2>
                 <p class="section-desc">
                     Layanan rekayasa perangkat lunak enterprise yang memadukan kecepatan backend berlatensi sub-milidetik, 
@@ -446,7 +446,7 @@
              ======================================================== -->
         <section id="showcase" class="content-section">
             <div class="main-wrapper">
-                <span class="section-tag">// 03. Production Case Studies</span>
+                <span class="section-tag">SYSTEM SHOWCASE</span>
                 <h2 class="section-headline">Portfolio &amp; Showcase Proyek Produksi</h2>
                 <p class="section-desc">
                     Studi kasus sistem perangkat lunak skala enterprise yang telah dirancang, dioptimalkan, dan dideploy oleh STRATiS Technologies Inc. 
@@ -481,7 +481,7 @@
                             </div>
                         </div>
                         <div class="gallery-card-content">
-                            <span class="gallery-tagline">// Distributed Cloud &bull; Global Edge Mesh</span>
+                            <span class="gallery-tagline">Distributed Cloud &bull; Global Edge Mesh</span>
                             <h3 class="gallery-proj-title">AetherMesh — Multi-Cloud Service Mesh &amp; Edge Gateway</h3>
                             <p class="gallery-proj-summary">
                                 High-concurrency edge API gateway dan zero-trust service mesh berskala multi-region global yang menangani routing mikroarsitektur dengan latensi jaringan sub-milidetik untuk mencapai efisiensi throughput ekstrem.
@@ -489,7 +489,7 @@
                             <div class="project-metrics-strip">
                                 <div class="metric-box">
                                     <span class="metric-title">Throughput</span>
-                                    <span class="metric-val text-cyan">54,000 req/s</span>
+                                    <span class="metric-val">54,000 req/s</span>
                                 </div>
                                 <div class="metric-box">
                                     <span class="metric-title">Median Hop</span>
@@ -497,7 +497,7 @@
                                 </div>
                                 <div class="metric-box">
                                     <span class="metric-title">Security</span>
-                                    <span class="metric-val text-cyan">Zero-Trust mTLS</span>
+                                    <span class="metric-val">Zero-Trust mTLS</span>
                                 </div>
                             </div>
                             <div class="gallery-card-footer">
@@ -526,7 +526,7 @@
                             </div>
                         </div>
                         <div class="gallery-card-content">
-                            <span class="gallery-tagline">// Institutional FinTech &bull; Event Sourcing Ledger</span>
+                            <span class="gallery-tagline">Institutional FinTech &bull; Event Sourcing Ledger</span>
                             <h3 class="gallery-proj-title">NexusCore — Real-Time Transaction Engine &amp; Ledger</h3>
                             <p class="gallery-proj-summary">
                                 Mesin kliring transaksi finansial dan rekonsiliasi pembukuan real-time berkinerja tinggi untuk institusi perbankan. Dibangun berlandaskan arsitektur modular terisolasi dengan model Event Sourcing dan snapshot in-memory terdistribusi, menjamin penyelesaian transaksi ACID mutlak.
@@ -534,7 +534,7 @@
                             <div class="project-metrics-strip">
                                 <div class="metric-box">
                                     <span class="metric-title">Peak Speed</span>
-                                    <span class="metric-val text-cyan">32,500 tx/s</span>
+                                    <span class="metric-val">32,500 tx/s</span>
                                 </div>
                                 <div class="metric-box">
                                     <span class="metric-title">Settlement</span>
@@ -542,7 +542,7 @@
                                 </div>
                                 <div class="metric-box">
                                     <span class="metric-title">Audit Log</span>
-                                    <span class="metric-val text-cyan">Merkle Verified</span>
+                                    <span class="metric-val">Merkle Verified</span>
                                 </div>
                             </div>
                             <div class="gallery-card-footer">
@@ -571,7 +571,7 @@
                             </div>
                         </div>
                         <div class="gallery-card-content">
-                            <span class="gallery-tagline">// Enterprise AI Infrastructure &bull; Real-time Neural Telemetry</span>
+                            <span class="gallery-tagline">Enterprise AI Infrastructure &bull; Real-time Neural Telemetry</span>
                             <h3 class="gallery-proj-title">STRATiS Cognitive Intelligence Hub</h3>
                             <p class="gallery-proj-summary">
                                 Platform orkestrasi inferensi cerdas enterprise dan pemantauan throughput token secara real-time bertenaga kluster neural internal STRATiS. Dilengkapi visualisasi neural pathways dan knowledge retrieval aman berlatensi rendah.
@@ -579,7 +579,7 @@
                             <div class="project-metrics-strip">
                                 <div class="metric-box">
                                     <span class="metric-title">Context Window</span>
-                                    <span class="metric-val text-cyan">1M Tokens</span>
+                                    <span class="metric-val">1M Tokens</span>
                                 </div>
                                 <div class="metric-box">
                                     <span class="metric-title">Latency</span>
@@ -587,7 +587,7 @@
                                 </div>
                                 <div class="metric-box">
                                     <span class="metric-title">Security</span>
-                                    <span class="metric-val text-cyan">TLS 1.3 RAG</span>
+                                    <span class="metric-val">TLS 1.3 RAG</span>
                                 </div>
                             </div>
                             <div class="gallery-card-footer">
@@ -616,7 +616,7 @@
                             </div>
                         </div>
                         <div class="gallery-card-content">
-                            <span class="gallery-tagline">// Cloud Security &bull; High Concurrency WAF</span>
+                            <span class="gallery-tagline">Cloud Security &bull; High Concurrency WAF</span>
                             <h3 class="gallery-proj-title">Sentinel Cloud Gateway &amp; Cyber Defense</h3>
                             <p class="gallery-proj-summary">
                                 API Gateway mikroarsitektur berkinerja tinggi yang menangani perutean request, rate limiting adaptif berbasis Redis, mitigasi serangan DDoS, dan inspeksi WAF dengan latensi jaringan sub-milidetik menggunakan arsitektur mikroarsitektur modern.
@@ -624,7 +624,7 @@
                             <div class="project-metrics-strip">
                                 <div class="metric-box">
                                     <span class="metric-title">Traffic Scale</span>
-                                    <span class="metric-val text-cyan">10,000+ req/s</span>
+                                    <span class="metric-val">10,000+ req/s</span>
                                 </div>
                                 <div class="metric-box">
                                     <span class="metric-title">Rate Limiting</span>
@@ -632,7 +632,7 @@
                                 </div>
                                 <div class="metric-box">
                                     <span class="metric-title">Protection</span>
-                                    <span class="metric-val text-cyan">WAF + DDoS</span>
+                                    <span class="metric-val">WAF + DDoS</span>
                                 </div>
                             </div>
                             <div class="gallery-card-footer">
@@ -654,7 +654,7 @@
              ======================================================== -->
         <section id="leadership" class="content-section">
             <div class="main-wrapper">
-                <span class="section-tag">// 04. Executive Leadership</span>
+                <span class="section-tag">EXECUTIVE LEADERSHIP</span>
                 <h2 class="section-headline">Kepemimpinan &amp; Tata Kelola Arsitektur</h2>
                 <p class="section-desc">
                     Dipimpin oleh para profesional rekayasa perangkat lunak dan arsitek sistem terdistribusi dengan komitmen pada standar industri global.
@@ -667,7 +667,7 @@
                             <img src="images/executive-ceo.jpg" alt="David Hendrawan - Chief Executive Officer" width="88" height="88" loading="lazy">
                         </div>
                         <div class="exec-name">David Hendrawan</div>
-                        <div class="exec-title">Chief Executive Officer // Founder</div>
+                        <div class="exec-title">Chief Executive Officer &bull; Founder</div>
                         <p class="exec-bio">
                             Mengarahkan visi strategis, ekspansi bisnis teknologi, dan kemitraan enterprise STRATiS Technologies Inc. Berfokus pada adopsi arsitektur perangkat lunak berdaya tahan tinggi dan tata kelola teknologi berstandar internasional.
                         </p>
@@ -735,7 +735,7 @@
              ======================================================== -->
         <section id="contact" class="content-section">
             <div class="main-wrapper">
-                <span class="section-tag">// 05. Direct Connect</span>
+                <span class="section-tag">CONNECT &amp; OPERATIONS</span>
                 <h2 class="section-headline">Hubungi STRATiS Technologies</h2>
                 <p class="section-desc">
                     Terhubung langsung dengan tim arsitektur enterprise, operasional cloud global, dan saluran kemitraan strategis STRATiS Technologies Inc.
@@ -745,7 +745,7 @@
                     <!-- Left Column: Primary Contact Channels -->
                     <div class="contact-channels-card">
                         <div class="contact-card-header">
-                            <span class="font-mono text-cyan" style="font-size: 0.72rem;">// OFFICIAL CHANNELS</span>
+                            <span class="font-mono" style="font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.06em;">OFFICIAL CHANNELS</span>
                             <h3 class="contact-card-title">Saluran Komunikasi Resmi</h3>
                             <p class="contact-card-desc">Pusat komunikasi resmi untuk kebutuhan konsultasi arsitektur, kerjasama kelembagaan, dan permohonan technical briefing.</p>
                         </div>
@@ -773,7 +773,7 @@
                                     <i class="fa-solid fa-phone" aria-hidden="true"></i>
                                 </div>
                                 <div class="tile-details">
-                                    <div class="tile-tag font-mono">GLOBAL HOTLINE // NOC</div>
+                                    <div class="tile-tag font-mono">GLOBAL NOC HOTLINE</div>
                                     <div class="tile-main-text">+62 (21) 5088-0199</div>
                                     <div class="tile-sub-text">Layanan representatif Senin – Jumat (08:00 – 18:00 WIB)</div>
                                 </div>
@@ -818,7 +818,7 @@
                     <!-- Right Column: Regional Hubs & Executive Consultation Action -->
                     <div class="contact-offices-card">
                         <div class="contact-card-header">
-                            <span class="font-mono text-cyan" style="font-size: 0.72rem;">// GLOBAL OPERATIONS</span>
+                            <span class="font-mono" style="font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.06em;">GLOBAL OPERATIONS</span>
                             <h3 class="contact-card-title">Lokasi Kantor &amp; Pusat Riset</h3>
                             <p class="contact-card-desc">Kehadiran operasional STRATiS Technologies untuk mendukung infrastruktur digital regional dan global.</p>
                         </div>
@@ -828,21 +828,21 @@
                             <div class="office-box primary-hq">
                                 <div class="office-badge font-mono">HEADQUARTERS &amp; LABS</div>
                                 <div class="office-name">Horizon Tower, Level 18</div>
-                                <div class="office-location"><i class="fa-solid fa-location-dot text-cyan"></i> Batam Digital Park, Indonesia</div>
+                                <div class="office-location"><i class="fa-solid fa-location-dot" style="color: var(--text-muted);"></i> Batam Digital Park, Indonesia</div>
                                 <div class="office-meta">Pusat riset sistem komputasi terdistribusi, studio rekayasa perangkat lunak, dan operasional utama.</div>
                             </div>
 
                             <div class="office-box">
                                 <div class="office-badge font-mono">REGIONAL GATEWAY</div>
                                 <div class="office-name">One-North Fusionopolis</div>
-                                <div class="office-location"><i class="fa-solid fa-location-dot text-cyan"></i> Singapore Gateway</div>
+                                <div class="office-location"><i class="fa-solid fa-location-dot" style="color: var(--text-muted);"></i> Singapore Gateway</div>
                                 <div class="office-meta">Hub konektivitas cloud internasional dan koordinasi infrastruktur multi-region.</div>
                             </div>
 
                             <div class="office-box">
                                 <div class="office-badge font-mono">ENTERPRISE LIAISON</div>
                                 <div class="office-name">SCBD Financial Center</div>
-                                <div class="office-location"><i class="fa-solid fa-location-dot text-cyan"></i> Jakarta, Indonesia</div>
+                                <div class="office-location"><i class="fa-solid fa-location-dot" style="color: var(--text-muted);"></i> Jakarta, Indonesia</div>
                                 <div class="office-meta">Kantor perwakilan kemitraan korporasi, perbankan, dan institusi finansial.</div>
                             </div>
                         </div>
@@ -871,7 +871,7 @@
         <div class="arch-modal-container">
             <div class="arch-modal-header">
                 <div class="arch-modal-title-group">
-                    <span class="font-mono text-cyan" id="modalCategory" style="font-size: 0.72rem;">// Architecture Breakdown</span>
+                    <span class="font-mono" id="modalCategory" style="font-size: 0.72rem; color: var(--text-muted);">Architecture Specification</span>
                     <h3 id="modalTitle">Project Title</h3>
                 </div>
                 <button type="button" class="arch-modal-close-btn" id="archModalCloseBtn" aria-label="Tutup modal">
@@ -919,13 +919,14 @@
             </div>
         </div>
 
-        <!-- 5 Curated Quick Chat Buttons Bar -->
+        <!-- Chat Stream Messages Container -->
+        <div class="chatbot-messages" id="chatbotMessages" tabindex="0" aria-live="polite">
+            <!-- Messages dynamically injected via chatbot.js -->
+        </div>
+
+        <!-- Ergonomic Quick Suggestion Chips (Directly above input bar) -->
         <div class="chatbot-quick-panel">
-            <div class="quick-panel-header">
-                <span>Topik Cepat (Instan)</span>
-                <span>5 Opsi</span>
-            </div>
-            <div class="quick-chats-grid" aria-label="5 Tombol Percakapan Cepat">
+            <div class="quick-chats-grid" aria-label="Rekomendasi Cepat">
                 <button type="button" class="quick-chat-btn" data-quick-key="quick_profile" data-label="Profil &amp; Visi STRATiS">
                     <i class="fa-solid fa-building" aria-hidden="true"></i>
                     <span>Profil &amp; Visi</span>
@@ -947,11 +948,6 @@
                     <span>Kontak &amp; Kemitraan</span>
                 </button>
             </div>
-        </div>
-
-        <!-- Chat Stream Messages Container -->
-        <div class="chatbot-messages" id="chatbotMessages" tabindex="0" aria-live="polite">
-            <!-- Messages dynamically injected via chatbot.js -->
         </div>
 
         <!-- Chat Input Bar -->

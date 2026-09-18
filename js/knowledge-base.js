@@ -222,9 +222,9 @@ function queryKnowledgeBase(userQuery) {
 
   // Greetings
   if (has("halo", "hai", "hello", "hi", "selamat pagi", "selamat siang", "selamat malam", "pagi", "siang", "malam")) {
-    return `Halo! Selamat datang di **STRATiS Assistant**. 🚀\n\nSaya siap membantu Anda mengeksplorasi:\n- **Profil & Visi STRATiS Technologies**\n- **Layanan Rekayasa Sistem & Cloud Infrastructure**\n- **Kapabilitas AI & Sistem Cerdas Enterprise**\n- **Portfolio Proyek Produksi (AetherMesh, NexusCore, dll)**\n- **Saluran Komunikasi Resmi & Kemitraan**\n\nSilakan pilih salah satu tombol cepat di atas atau ajukan pertanyaan spesifik Anda secara langsung!`;
+    return `Halo! Selamat datang di **STRATiS Assistant**.\n\nSaya siap membantu Anda mengeksplorasi:\n- **Profil & Visi STRATiS Technologies**\n- **Layanan Rekayasa Sistem & Cloud Infrastructure**\n- **Kapabilitas AI & Sistem Cerdas Enterprise**\n- **Portfolio Proyek Produksi (AetherMesh, NexusCore, dll)**\n- **Saluran Komunikasi Resmi & Kemitraan**\n\nSilakan pilih salah satu rekomendasi cepat di bawah atau ajukan pertanyaan spesifik Anda secara langsung!`;
   }
 
   // Autonomous Dynamic Reasoning Fallback
-  return `Terima kasih atas pertanyaan Anda terkait **"${raw}"**.\n\nSebagai asisten resmi **STRATiS Technologies Inc.**, sistem kami berfokus pada rekayasa arsitektur perangkat lunak enterprise, infrastruktur cloud terdistribusi, dan platform kecerdasan kognitif yang aman.\n\nUntuk informasi terstruktur, Anda dapat menggunakan 5 tombol topik cepat di atas, atau silakan jelaskan lebih detail kebutuhan sistem yang ingin Anda diskusikan.`;
+  return `Terima kasih atas pertanyaan Anda terkait **"${raw}"**.\n\nSebagai asisten resmi **STRATiS Technologies Inc.**, sistem kami berfokus pada rekayasa arsitektur perangkat lunak enterprise, infrastruktur cloud terdistribusi, dan platform analitik kognitif yang aman.\n\nUntuk informasi terstruktur, Anda dapat memilih rekomendasi instan di bawah, atau silakan jelaskan spesifikasi kebutuhan sistem yang ingin Anda diskusikan.`;
 }

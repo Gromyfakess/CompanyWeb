@@ -1,33 +1,33 @@
 /* ========================================================
    STRATiS Technologies Inc. — Enterprise Architecture Design System
    Design Pattern: High-End Enterprise Infrastructure & Systems Engineering
-   Theme: Matte Obsidian, Steel Graphite, Precision Hairlines, Sapphire Cobalt
-   (Non-Neon, Non-Gimmicky, Professional B2B Standard)
+   Theme: Matte Basalt, Anodized Obsidian, Precision Hairlines, Disciplined Cobalt
+   (Non-Neon, Non-Vibecoded, High-Downtime-Resistance Enterprise Standard)
    ======================================================== */
 
 :root {
-    /* Backgrounds */
-    --bg-base: #07090e;              /* Deep matte obsidian */
-    --bg-surface: #0d1117;           /* Primary surface */
-    --bg-surface-elevated: #121722;  /* Elevated card surface */
-    --bg-surface-hover: #161d2b;     /* Active/hover surface */
-    --bg-surface-card: #0b0f17;      /* Clean card interior */
+    /* Backgrounds: Tactile Matte Basalt & Obsidian */
+    --bg-base: #090b10;              /* Deep matte basalt foundation */
+    --bg-surface: #0f131c;           /* Primary matte monolith surface */
+    --bg-surface-elevated: #141924;  /* Elevated matte card surface */
+    --bg-surface-hover: #19202f;     /* Active/hover surface */
+    --bg-surface-card: #0c0f17;      /* Clean card interior */
 
-    /* Dividers & Borders */
-    --border: #1a2232;               /* Precision hairline border */
-    --border-hover: #26334a;         /* Hover state border */
-    --border-focus: #0056d6;         /* Focus accent */
+    /* Dividers & Borders (Precision Hairlines, Zero Neon Glow) */
+    --border: rgba(255, 255, 255, 0.08);         /* Precision hairline border */
+    --border-hover: rgba(255, 255, 255, 0.16);   /* Hover state border */
+    --border-focus: #1d4ed8;                     /* Focus accent */
 
-    /* Brand Accents (STRATiS Sapphire & Steel) */
-    --brand-primary: #0056d6;        /* STRATiS Royal Sapphire */
-    --brand-primary-hover: #1d4ed8;  /* Deep blue hover */
-    --brand-secondary: #3b82f6;      /* Vibrant cobalt */
-    --brand-ice: #60a5fa;            /* Technical ice blue */
-    --brand-emerald: #10b981;        /* Operational green */
+    /* Disciplined Brand Palette (STRATiS Architecture Cobalt) */
+    --brand-primary: #1d4ed8;        /* STRATiS Precision Cobalt */
+    --brand-primary-hover: #2563eb;  /* Hover state */
+    --brand-secondary: #3b82f6;      /* Controlled active highlight */
+    --brand-slate: #94a3b8;          /* Titanium Slate */
+    --brand-emerald: #10b981;        /* Operational metric green */
 
     /* Typography Hierarchy */
-    --text-primary: #f8fafc;         /* High-contrast crisp text */
-    --text-secondary: #94a3b8;       /* Technical body text */
+    --text-primary: #f8fafc;         /* High-contrast crisp white */
+    --text-secondary: #94a3b8;       /* Warm titanium technical body */
     --text-muted: #64748b;           /* Meta tags, labels, captions */
 
     /* Fonts */
@@ -63,11 +63,9 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
-    /* Subtle structural grid pattern */
-    background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-    background-size: 40px 40px;
+    /* Authentic tactile matte micro-stipple canvas */
+    background-image: radial-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    background-size: 20px 20px;
     background-position: center top;
 }
 
@@ -97,7 +95,7 @@ button:focus-visible {
 }
 
 .font-mono { font-family: var(--font-mono); }
-.text-cyan { color: var(--brand-ice) !important; }
+.text-slate { color: var(--text-secondary) !important; }
 .text-blue { color: var(--brand-secondary) !important; }
 .text-muted { color: var(--text-muted) !important; }
 
@@ -120,18 +118,20 @@ button:focus-visible {
 /* Section Header Typography */
 .section-tag {
     font-family: var(--font-mono);
-    font-size: 0.74rem;
-    color: var(--brand-ice);
-    letter-spacing: 0.06em;
+    font-size: 0.72rem;
+    color: #cbd5e1;
+    font-weight: 600;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 0.75rem;
-    background: #0f141f;
-    border: 1px solid #1c2638;
-    padding: 4px 12px;
+    margin-bottom: 0.85rem;
+    background: #121622;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    padding: 5px 14px;
     border-radius: var(--radius-sm);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .section-headline {
@@ -161,12 +161,12 @@ button:focus-visible {
     transform: translateX(-50%);
     width: min(1200px, calc(100% - 32px));
     z-index: 1000;
-    background: rgba(11, 14, 21, 0.92);
+    background: rgba(10, 13, 19, 0.94);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255, 255, 255, 0.09);
     border-radius: var(--radius-md);
-    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.7);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 16px 36px -10px rgba(0, 0, 0, 0.75);
     transition: all 0.25s ease;
 }
 
@@ -257,14 +257,20 @@ button:focus-visible {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 5px 12px;
+    padding: 5px 13px;
     border-radius: var(--radius-sm);
-    background: #0d121c;
-    border: 1px solid var(--border);
+    background: #111520;
+    border: 1px solid rgba(255, 255, 255, 0.09);
     font-family: var(--font-mono);
-    font-size: 0.74rem;
-    color: var(--brand-ice);
+    font-size: 0.73rem;
+    color: #cbd5e1;
     margin-bottom: 1.25rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.hero-badge-pill i {
+    color: #94a3b8;
+    font-size: 0.78rem;
 }
 
 .hero-title {
@@ -306,41 +312,46 @@ button:focus-visible {
     background: var(--brand-primary);
     color: #ffffff;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     padding: 11px 22px;
     border-radius: var(--radius-sm);
     border: 1px solid rgba(255, 255, 255, 0.15);
     cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 4px 14px rgba(0, 86, 214, 0.35);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 4px 14px rgba(0, 0, 0, 0.4);
 }
 
 .btn-enterprise-primary:hover {
     background: var(--brand-primary-hover);
     transform: translateY(-1px);
     color: #ffffff;
-    box-shadow: 0 6px 20px rgba(0, 86, 214, 0.5);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 6px 18px rgba(0, 0, 0, 0.5);
 }
 
 .btn-enterprise-secondary {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #0f141f;
+    background: #111520;
     color: var(--text-primary);
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     padding: 11px 20px;
     border-radius: var(--radius-sm);
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255, 255, 255, 0.09);
     cursor: pointer;
     transition: all 0.2s ease;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .btn-enterprise-secondary:hover {
-    background: #161e2d;
-    border-color: var(--border-hover);
+    background: #171d2b;
+    border-color: rgba(255, 255, 255, 0.18);
     color: #ffffff;
+}
+
+.btn-enterprise-secondary i {
+    color: #94a3b8;
 }
 
 /* Hero SLA Ribbon */
@@ -373,20 +384,20 @@ button:focus-visible {
 }
 
 /* ========================================================
-   HERO RIGHT: RUNTIME TELEMETRY CONSOLE
+   HERO RIGHT: ARCHITECTURE BLUEPRINT & TOPOLOGY
    ======================================================== */
 .arch-console-box {
-    background: #0a0d14;
-    border: 1px solid var(--border);
+    background: #0d1017;
+    border: 1px solid rgba(255, 255, 255, 0.09);
     border-radius: var(--radius-md);
     overflow: hidden;
-    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.8);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 20px 50px -10px rgba(0, 0, 0, 0.85);
 }
 
 .console-header-bar {
-    background: #0e121a;
-    border-bottom: 1px solid var(--border);
-    padding: 11px 16px;
+    background: #10141e;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 12px 18px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -394,28 +405,42 @@ button:focus-visible {
 
 .console-window-dots {
     display: flex;
-    gap: 5px;
+    gap: 6px;
 }
 
 .window-dot {
     width: 9px;
     height: 9px;
     border-radius: 50%;
-    background: #232b3c;
+    background: #222938;
 }
 
 .console-title {
-    font-size: 0.76rem;
-    color: var(--text-secondary);
+    font-size: 0.75rem;
+    color: #cbd5e1;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
+}
+
+.console-title i {
+    color: #94a3b8;
+}
+
+.console-status-badge {
+    font-size: 0.68rem;
+    color: #94a3b8;
+    background: #151a26;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 2px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.04em;
 }
 
 .console-nav-tabs {
     display: flex;
-    background: #080a10;
-    border-bottom: 1px solid var(--border);
+    background: #0a0c12;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     overflow-x: auto;
 }
 
@@ -427,14 +452,14 @@ button:focus-visible {
     color: var(--text-muted);
     font-family: var(--font-mono);
     font-size: 0.73rem;
-    padding: 10px 14px;
+    padding: 11px 14px;
     cursor: pointer;
     white-space: nowrap;
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 7px;
 }
 
 .console-tab-btn:hover {
@@ -444,8 +469,13 @@ button:focus-visible {
 
 .console-tab-btn.active {
     color: #ffffff;
-    background: #0c1017;
+    background: #0f131c;
     border-bottom-color: var(--brand-primary);
+}
+
+.console-tab-btn i {
+    color: #94a3b8;
+    font-size: 0.75rem;
 }
 
 .console-body {
@@ -474,22 +504,24 @@ button:focus-visible {
 }
 
 .telemetry-card-mini {
-    background: #0f141f;
-    border: 1px solid var(--border);
+    background: #111520;
+    border: 1px solid rgba(255, 255, 255, 0.07);
     border-radius: var(--radius-sm);
-    padding: 10px 12px;
+    padding: 12px 14px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .telemetry-card-mini .label {
     font-family: var(--font-mono);
-    font-size: 0.68rem;
+    font-size: 0.67rem;
     color: var(--text-muted);
+    letter-spacing: 0.04em;
     margin-bottom: 4px;
 }
 
 .telemetry-card-mini .val {
     font-family: var(--font-mono);
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     font-weight: 700;
     color: #ffffff;
 }
@@ -504,11 +536,12 @@ button:focus-visible {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #0d1118;
-    border: 1px solid var(--border);
-    padding: 9px 12px;
+    background: #0f131c;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 10px 14px;
     border-radius: var(--radius-sm);
     font-size: 0.78rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .arch-layer-pill .layer-name {
@@ -517,6 +550,10 @@ button:focus-visible {
     display: flex;
     align-items: center;
     gap: 8px;
+}
+
+.arch-layer-pill .layer-name i {
+    color: #94a3b8;
 }
 
 .arch-layer-pill .layer-status {
@@ -542,20 +579,22 @@ button:focus-visible {
     padding: 30px;
     display: flex;
     flex-direction: column;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 6px 24px rgba(0, 0, 0, 0.45);
 }
 
 .about-card-icon {
     width: 42px;
     height: 42px;
     border-radius: var(--radius-sm);
-    background: #131825;
-    border: 1px solid #1f283d;
-    color: var(--brand-secondary);
+    background: #141926;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #cbd5e1;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.15rem;
     margin-bottom: 18px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .about-card-title {
@@ -587,18 +626,20 @@ button:focus-visible {
     padding: 22px;
     display: flex;
     flex-direction: column;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 4px 18px rgba(0, 0, 0, 0.4);
 }
 
 .value-num {
     font-family: var(--font-mono);
     font-size: 0.7rem;
-    color: var(--brand-ice);
-    background: #0f1420;
-    border: 1px solid #1c2538;
+    color: #cbd5e1;
+    background: #121622;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     padding: 2px 8px;
     border-radius: 4px;
     width: fit-content;
     margin-bottom: 12px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .value-title {
@@ -620,6 +661,7 @@ button:focus-visible {
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
     padding: 28px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 6px 24px rgba(0, 0, 0, 0.45);
 }
 
 .wordmark-row {
@@ -630,13 +672,14 @@ button:focus-visible {
 }
 
 .wordmark-preview-wrap {
-    background: #07090f;
-    border: 1px solid var(--border);
+    background: #080a0f;
+    border: 1px solid rgba(255, 255, 255, 0.07);
     border-radius: var(--radius-sm);
     padding: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .wordmark-preview-img {
@@ -650,10 +693,11 @@ button:focus-visible {
 }
 
 .anatomy-spec-item {
-    background: #0b0f17;
-    border: 1px solid var(--border);
+    background: #0c0f17;
+    border: 1px solid rgba(255, 255, 255, 0.07);
     padding: 12px 14px;
     border-radius: var(--radius-sm);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .anatomy-spec-item strong {
@@ -686,26 +730,29 @@ button:focus-visible {
     padding: 28px;
     display: flex;
     flex-direction: column;
-    transition: border-color 0.2s ease, transform 0.2s ease;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 6px 24px rgba(0, 0, 0, 0.45);
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .service-card:hover {
-    border-color: #27344c;
+    border-color: rgba(255, 255, 255, 0.16);
     transform: translateY(-2px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.09), 0 10px 28px rgba(0, 0, 0, 0.55);
 }
 
 .service-icon-box {
     width: 44px;
     height: 44px;
     border-radius: var(--radius-sm);
-    background: #111724;
-    border: 1px solid #1e293f;
-    color: var(--brand-secondary);
+    background: #141926;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #cbd5e1;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.15rem;
     margin-bottom: 18px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .service-title {
@@ -733,8 +780,8 @@ button:focus-visible {
     font-family: var(--font-mono);
     font-size: 0.72rem;
     color: #cbd5e1;
-    background: #090d14;
-    border: 1px solid #1c2538;
+    background: #0c0f16;
+    border: 1px solid rgba(255, 255, 255, 0.07);
     padding: 3px 8px;
     border-radius: 4px;
 }
@@ -752,8 +799,8 @@ button:focus-visible {
 }
 
 .filter-btn {
-    background: #0f141f;
-    border: 1px solid var(--border);
+    background: #111520;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     color: var(--text-secondary);
     font-size: 0.82rem;
     font-weight: 500;
@@ -761,17 +808,20 @@ button:focus-visible {
     border-radius: var(--radius-sm);
     cursor: pointer;
     transition: all 0.2s ease;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .filter-btn:hover {
     color: #ffffff;
-    border-color: #26334a;
+    border-color: rgba(255, 255, 255, 0.16);
+    background: #161c2b;
 }
 
 .filter-btn.active {
     background: var(--brand-primary);
     color: #ffffff;
     border-color: var(--brand-primary);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .gallery-grid {
@@ -787,17 +837,19 @@ button:focus-visible {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: border-color 0.2s ease, transform 0.2s ease;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 6px 24px rgba(0, 0, 0, 0.45);
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .gallery-card:hover {
-    border-color: #27344c;
+    border-color: rgba(255, 255, 255, 0.16);
     transform: translateY(-2px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.09), 0 10px 28px rgba(0, 0, 0, 0.55);
 }
 
 .gallery-media-header {
-    background: #080a10;
-    border-bottom: 1px solid var(--border);
+    background: #080a0f;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     overflow: hidden;
 }
 
@@ -806,8 +858,8 @@ button:focus-visible {
     align-items: center;
     justify-content: space-between;
     padding: 8px 14px;
-    background: #0b0e15;
-    border-bottom: 1px solid var(--border);
+    background: #0d1017;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .mockup-dots {
@@ -856,9 +908,9 @@ button:focus-visible {
 .gallery-tagline {
     font-family: var(--font-mono);
     font-size: 0.72rem;
-    color: var(--brand-ice);
+    color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
     margin-bottom: 8px;
 }
 
@@ -882,11 +934,12 @@ button:focus-visible {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
-    background: #080b12;
-    border: 1px solid var(--border);
+    background: #0b0e15;
+    border: 1px solid rgba(255, 255, 255, 0.07);
     border-radius: var(--radius-sm);
     padding: 8px 12px;
     margin-bottom: 16px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .metric-box {
@@ -920,8 +973,8 @@ button:focus-visible {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: transparent;
-    border: 1px solid #1f283a;
+    background: #111520;
+    border: 1px solid rgba(255, 255, 255, 0.09);
     color: #ffffff;
     font-size: 0.8rem;
     font-weight: 600;
@@ -929,11 +982,12 @@ button:focus-visible {
     border-radius: var(--radius-sm);
     cursor: pointer;
     transition: all 0.2s ease;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .btn-open-modal:hover {
-    background: #141b29;
-    border-color: var(--brand-primary);
+    background: #171d2b;
+    border-color: rgba(255, 255, 255, 0.18);
 }
 
 /* ========================================================
@@ -953,11 +1007,13 @@ button:focus-visible {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    transition: border-color 0.2s ease;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 6px 24px rgba(0, 0, 0, 0.45);
+    transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
 .leadership-card:hover {
-    border-color: #27344c;
+    border-color: rgba(255, 255, 255, 0.16);
+    transform: translateY(-2px);
 }
 
 .exec-avatar-box {
@@ -965,7 +1021,7 @@ button:focus-visible {
     height: 88px;
     border-radius: var(--radius-md);
     overflow: hidden;
-    border: 1px solid #232d42;
+    border: 1px solid rgba(255, 255, 255, 0.09);
     margin-bottom: 18px;
 }
 
@@ -985,7 +1041,7 @@ button:focus-visible {
 .exec-title {
     font-family: var(--font-mono);
     font-size: 0.74rem;
-    color: var(--brand-ice);
+    color: var(--text-muted);
     margin-bottom: 12px;
 }
 
@@ -1007,8 +1063,8 @@ button:focus-visible {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: #090c13;
-    border: 1px solid var(--border);
+    background: #0c0f16;
+    border: 1px solid rgba(255, 255, 255, 0.07);
     padding: 4px 8px;
     border-radius: 4px;
     font-size: 0.72rem;
@@ -1016,7 +1072,7 @@ button:focus-visible {
 }
 
 .exec-badge-item i {
-    color: var(--brand-secondary);
+    color: #94a3b8;
 }
 
 /* ========================================================
@@ -1036,6 +1092,7 @@ button:focus-visible {
     padding: 30px;
     display: flex;
     flex-direction: column;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 6px 24px rgba(0, 0, 0, 0.45);
 }
 
 .contact-card-header {
@@ -1067,8 +1124,8 @@ button:focus-visible {
 
 .contact-tile-link,
 .contact-tile-static {
-    background: #090c13;
-    border: 1px solid var(--border);
+    background: #0b0e15;
+    border: 1px solid rgba(255, 255, 255, 0.07);
     border-radius: var(--radius-sm);
     padding: 16px 18px;
     display: flex;
@@ -1076,11 +1133,12 @@ button:focus-visible {
     gap: 16px;
     text-decoration: none;
     transition: all 0.2s ease;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .contact-tile-link:hover {
-    background: #101522;
-    border-color: var(--brand-primary);
+    background: #121724;
+    border-color: rgba(255, 255, 255, 0.16);
     transform: translateX(4px);
 }
 
@@ -1088,14 +1146,15 @@ button:focus-visible {
     width: 40px;
     height: 40px;
     border-radius: var(--radius-sm);
-    background: #111728;
-    border: 1px solid #1e2840;
-    color: var(--brand-secondary);
+    background: #141926;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #94a3b8;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.05rem;
     flex-shrink: 0;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .tile-details {
@@ -1134,9 +1193,9 @@ button:focus-visible {
 
 .tile-badge-sla {
     font-size: 0.7rem;
-    color: var(--brand-ice);
-    background: #0b111e;
-    border: 1px solid #1e293f;
+    color: #cbd5e1;
+    background: #121722;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     padding: 3px 8px;
     border-radius: 4px;
 }
@@ -1159,7 +1218,6 @@ button:focus-visible {
     height: 6px;
     border-radius: 50%;
     background: #10b981;
-    box-shadow: 0 0 6px #10b981;
 }
 
 /* Offices Grid */
@@ -1172,22 +1230,23 @@ button:focus-visible {
 }
 
 .office-box {
-    background: #090c13;
-    border: 1px solid var(--border);
+    background: #0b0e15;
+    border: 1px solid rgba(255, 255, 255, 0.07);
     border-radius: var(--radius-sm);
     padding: 16px 18px;
     display: flex;
     flex-direction: column;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .office-box.primary-hq {
-    border-color: rgba(0, 86, 214, 0.4);
-    background: linear-gradient(135deg, rgba(0, 86, 214, 0.05) 0%, #090c13 100%);
+    border-color: rgba(29, 78, 216, 0.35);
+    background: #0c1018;
 }
 
 .office-badge {
     font-size: 0.65rem;
-    color: var(--brand-secondary);
+    color: #94a3b8;
     letter-spacing: 0.06em;
     margin-bottom: 4px;
 }
@@ -1216,14 +1275,15 @@ button:focus-visible {
 
 /* Direct Consultation Action Banner */
 .contact-cta-banner {
-    background: #0f1422;
-    border: 1px solid var(--border);
+    background: #111520;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--radius-sm);
     padding: 18px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .cta-banner-title {
