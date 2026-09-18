@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STRATiS Technologies — Enterprise Platforms & Distributed Cloud Systems</title>
-    <meta name="description" content="STRATiS Technologies Inc. Studio rekayasa perangkat lunak enterprise berkinerja tinggi. Spesialis Go Clean Architecture, distributed service mesh, database clustering, dan sistem kecerdasan kognitif.">
+    <meta name="description" content="STRATiS Technologies Inc. Studio rekayasa perangkat lunak enterprise berkinerja tinggi. Spesialis arsitektur sistem terdistribusi, multi-region service mesh, database clustering, dan sistem komputasi kognitif.">
     <meta name="author" content="STRATiS Technologies Inc.">
     <meta name="theme-color" content="#07090e">
 
@@ -16,6 +16,8 @@
 
     <!-- Browser Favicon -->
     <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
     
     <!-- Local Bootstrap 5 Grid & Base CSS -->
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -84,7 +86,7 @@
 
                         <p class="hero-lead">
                             STRATiS Technologies Inc. adalah studio rekayasa perangkat lunak enterprise dan infrastruktur komputasi berkinerja tinggi. 
-                            Kami merancang backend mikroarsitektur dengan <strong>Go Clean Architecture</strong>, multi-region service mesh berlatensi sub-milidetik, 
+                            Kami merancang backend mikroarsitektur enterprise berkinerja tinggi, multi-region service mesh berlatensi sub-milidetik, 
                             dan orkestrasi sistem kecerdasan kognitif yang aman.
                         </p>
 
@@ -111,7 +113,7 @@
                             </div>
                             <div class="sla-item">
                                 <span class="sla-number">100%</span>
-                                <span class="sla-label font-mono">// Clean Architecture Strict</span>
+                                <span class="sla-label font-mono">// Modular Architecture Strict</span>
                             </div>
                         </div>
                     </div>
@@ -135,7 +137,7 @@
                             <!-- Interactive Console Tabs -->
                             <div class="console-nav-tabs">
                                 <button type="button" class="console-tab-btn active" data-tab="tabGateway">
-                                    <i class="fa-brands fa-golang"></i> Core API Gateway
+                                    <i class="fa-solid fa-server"></i> Core API Gateway
                                 </button>
                                 <button type="button" class="console-tab-btn" data-tab="tabMesh">
                                     <i class="fa-solid fa-diagram-project"></i> Service Mesh (eBPF)
@@ -148,7 +150,7 @@
                             <!-- Console Body -->
                             <div class="console-body">
                                 
-                                <!-- Tab 1: Go Engine -->
+                                <!-- Tab 1: Core Engine -->
                                 <div class="console-tab-content active" id="tabGateway">
                                     <div class="telemetry-metric-row">
                                         <div class="telemetry-card-mini">
@@ -162,16 +164,16 @@
                                     </div>
                                     <div class="architecture-layer-list">
                                         <div class="arch-layer-pill">
-                                            <span class="layer-name"><i class="fa-solid fa-layer-group text-cyan"></i> 01. Domain Entities</span>
+                                            <span class="layer-name"><i class="fa-solid fa-layer-group text-cyan"></i> 01. Domain Core</span>
                                             <span class="layer-status">Pure Logic / Isolated</span>
                                         </div>
                                         <div class="arch-layer-pill">
-                                            <span class="layer-name"><i class="fa-solid fa-arrows-split-up-and-left text-cyan"></i> 02. Usecases &amp; Interactors</span>
+                                            <span class="layer-name"><i class="fa-solid fa-arrows-split-up-and-left text-cyan"></i> 02. Transactional Interactors</span>
                                             <span class="layer-status">Transactional Flow</span>
                                         </div>
                                         <div class="arch-layer-pill">
-                                            <span class="layer-name"><i class="fa-solid fa-server text-cyan"></i> 03. Delivery / HTTP Router</span>
-                                            <span class="layer-status">Zero Allocations / Go</span>
+                                            <span class="layer-name"><i class="fa-solid fa-server text-cyan"></i> 03. High-Throughput Delivery</span>
+                                            <span class="layer-status">Zero Allocations / Native</span>
                                         </div>
                                     </div>
                                 </div>
@@ -227,7 +229,7 @@
                                         </div>
                                         <div class="arch-layer-pill">
                                             <span class="layer-name"><i class="fa-solid fa-network-wired text-cyan"></i> Multiplexed Connection Pool</span>
-                                            <span class="layer-status">Thread-Safe Go Pool</span>
+                                            <span class="layer-status">Thread-Safe Worker Pool</span>
                                         </div>
                                     </div>
                                 </div>
@@ -263,7 +265,7 @@
                         <p class="about-card-desc">
                             <strong>STRATiS Technologies Inc.</strong> (PT STRATiS Solusi Digital) adalah studio rekayasa perangkat lunak enterprise 
                             dan arsitek infrastruktur komputasi awan. Kami didirikan untuk memecahkan tantangan arsitektural kompleks dalam volume trafik masif 
-                            melalui penerapan Clean Architecture pada ekosistem Go, distributed service mesh berbasis eBPF, 
+                            melalui penerapan arsitektur modular berkinerja tinggi, distributed service mesh berbasis edge routing, 
                             serta orkestrasi sistem kecerdasan kognitif yang aman.
                             <br><br>
                             Dengan filosofi rekayasa yang berakar pada ketepatan domain logic dan modularitas sistem, STRATiS mendampingi institusi 
@@ -283,7 +285,7 @@
                         </p>
                         <p class="about-card-desc">
                             <strong>Misi Utama:</strong>
-                            <br>&bull; <em>Precision Engineering:</em> Mengembangkan backend Go modular berbasis Clean Architecture bebas keterikatan eksternal.
+                            <br>&bull; <em>Precision Engineering:</em> Mengembangkan sistem backend modular berkinerja tinggi yang bebas dari keterikatan dependensi eksternal.
                             <br>&bull; <em>Distributed Resilience:</em> Membangun infrastruktur multi-region yang beroperasi dengan ketersediaan tinggi 99.99%.
                             <br>&bull; <em>Intelligent Systems:</em> Mengintegrasikan sistem kecerdasan kognitif dengan tata kelola keamanan ketat.
                         </p>
@@ -338,7 +340,7 @@
                             </div>
                             <div class="anatomy-spec-item">
                                 <strong>Sharp Slash pada Huruf 'S'</strong>
-                                <p>Representasi pemisahan lapisan Clean Architecture dan ketajaman logika bisnis tanpa dependensi acak.</p>
+                                <p>Representasi ketelitian pemisahan arsitektur modular dan ketajaman logika bisnis tanpa dependensi acak.</p>
                             </div>
                             <div class="anatomy-spec-item">
                                 <strong>Architectural Swoosh Huruf 'R'</strong>
@@ -363,7 +365,7 @@
                 <span class="section-tag">// 02. Engineering Capabilities</span>
                 <h2 class="section-headline">Layanan &amp; Kapabilitas Solusi</h2>
                 <p class="section-desc">
-                    Layanan rekayasa perangkat lunak enterprise yang memadukan kecepatan backend Go berlatensi sub-milidetik, 
+                    Layanan rekayasa perangkat lunak enterprise yang memadukan kecepatan backend berlatensi sub-milidetik, 
                     distributed service mesh multi-region, dan keunggulan sistem data terdistribusi.
                 </p>
 
@@ -371,17 +373,17 @@
                     <!-- Service 1: Enterprise Backend & Microservices -->
                     <div class="service-card">
                         <div class="service-icon-box">
-                            <i class="fa-brands fa-golang" aria-hidden="true"></i>
+                            <i class="fa-solid fa-server" aria-hidden="true"></i>
                         </div>
-                        <h3 class="service-title">Enterprise Backend &amp; Microservices</h3>
+                        <h3 class="service-title">Enterprise Backend &amp; Distributed Systems</h3>
                         <p class="service-desc">
-                            Membangun sistem backend berskala enterprise menggunakan bahasa Go (Golang) berlandaskan Clean Architecture murni. Menghasilkan kode terstruktur rapi yang memisahkan aturan bisnis dari database dan framework luar, mampu menangani puluhan ribu concurrent requests per detik dengan konsumsi RAM minimal.
+                            Membangun sistem backend berskala enterprise dengan throughput masif dan efisiensi memori tinggi. Menghasilkan arsitektur modular yang memisahkan aturan bisnis inti dari database dan framework luar, mampu menangani puluhan ribu concurrent requests per detik dengan reliabilitas tinggi.
                         </p>
                         <div class="tech-tag-row">
-                            <span class="tech-tag">Go (Golang)</span>
-                            <span class="tech-tag">Clean Architecture</span>
+                            <span class="tech-tag">Distributed Systems</span>
+                            <span class="tech-tag">Modular Architecture</span>
                             <span class="tech-tag">High-Throughput REST</span>
-                            <span class="tech-tag">Goroutines Concurrency</span>
+                            <span class="tech-tag">Concurrent Processing</span>
                         </div>
                     </div>
 
@@ -479,10 +481,10 @@
                             </div>
                         </div>
                         <div class="gallery-card-content">
-                            <span class="gallery-tagline">// Distributed Cloud &bull; eBPF Kernel Routing</span>
+                            <span class="gallery-tagline">// Distributed Cloud &bull; Global Edge Mesh</span>
                             <h3 class="gallery-proj-title">AetherMesh — Multi-Cloud Service Mesh &amp; Edge Gateway</h3>
                             <p class="gallery-proj-summary">
-                                High-concurrency edge API gateway dan zero-trust service mesh berskala multi-region global yang menangani routing mikroarsitektur dengan latensi jaringan sub-milidetik. Menggunakan bahasa Go dan inspeksi kernel eBPF untuk mencapai efisiensi throughput ekstrem.
+                                High-concurrency edge API gateway dan zero-trust service mesh berskala multi-region global yang menangani routing mikroarsitektur dengan latensi jaringan sub-milidetik untuk mencapai efisiensi throughput ekstrem.
                             </p>
                             <div class="project-metrics-strip">
                                 <div class="metric-box">
@@ -527,7 +529,7 @@
                             <span class="gallery-tagline">// Institutional FinTech &bull; Event Sourcing Ledger</span>
                             <h3 class="gallery-proj-title">NexusCore — Real-Time Transaction Engine &amp; Ledger</h3>
                             <p class="gallery-proj-summary">
-                                Mesin kliring transaksi finansial dan rekonsiliasi pembukuan real-time berkinerja tinggi untuk institusi perbankan. Dibangun berlandaskan Go Clean Architecture dengan model Event Sourcing dan snapshot in-memory Redis, menjamin penyelesaian transaksi ACID mutlak.
+                                Mesin kliring transaksi finansial dan rekonsiliasi pembukuan real-time berkinerja tinggi untuk institusi perbankan. Dibangun berlandaskan arsitektur modular terisolasi dengan model Event Sourcing dan snapshot in-memory terdistribusi, menjamin penyelesaian transaksi ACID mutlak.
                             </p>
                             <div class="project-metrics-strip">
                                 <div class="metric-box">
@@ -617,7 +619,7 @@
                             <span class="gallery-tagline">// Cloud Security &bull; High Concurrency WAF</span>
                             <h3 class="gallery-proj-title">Sentinel Cloud Gateway &amp; Cyber Defense</h3>
                             <p class="gallery-proj-summary">
-                                API Gateway mikroarsitektur berkinerja tinggi yang menangani perutean request, rate limiting adaptif berbasis Redis, mitigasi serangan DDoS, dan inspeksi WAF dengan latensi jaringan sub-milidetik menggunakan arsitektur Go murni.
+                                API Gateway mikroarsitektur berkinerja tinggi yang menangani perutean request, rate limiting adaptif berbasis Redis, mitigasi serangan DDoS, dan inspeksi WAF dengan latensi jaringan sub-milidetik menggunakan arsitektur mikroarsitektur modern.
                             </p>
                             <div class="project-metrics-strip">
                                 <div class="metric-box">
@@ -689,12 +691,12 @@
                         <div class="exec-name">Katherine Laurent</div>
                         <div class="exec-title">Principal Cloud Architect</div>
                         <p class="exec-bio">
-                            Memimpin arsitektur sistem cloud terdistribusi, perancangan microservices Go berbasis Clean Architecture, optimasi throughput database berlatensi sub-milidetik, dan infrastruktur zero-downtime.
+                            Memimpin arsitektur sistem cloud terdistribusi, perancangan microservices enterprise terdistribusi, optimasi throughput database berlatensi sub-milidetik, dan infrastruktur zero-downtime.
                         </p>
                         <div class="exec-badge-list">
                             <div class="exec-badge-item">
-                                <i class="fa-brands fa-golang"></i>
-                                <span>Go Clean Architecture</span>
+                                <i class="fa-solid fa-diagram-project"></i>
+                                <span>Distributed Systems</span>
                             </div>
                             <div class="exec-badge-item">
                                 <i class="fa-solid fa-server"></i>
@@ -729,117 +731,133 @@
         </section>
 
         <!-- ========================================================
-             05. KONTAK KEMITRAAN & INTAKE FORM (B2B)
+             05. KONTAK & KANTOR PUSAT (CORPORATE HEADQUARTERS & GLOBAL INQUIRIES)
              ======================================================== -->
         <section id="contact" class="content-section">
             <div class="main-wrapper">
                 <span class="section-tag">// 05. Direct Connect</span>
-                <h2 class="section-headline">Konsultasi &amp; Kemitraan Proyek</h2>
+                <h2 class="section-headline">Hubungi STRATiS Technologies</h2>
                 <p class="section-desc">
-                    Diskusikan kebutuhan arsitektur sistem backend, modernisasi infrastruktur cloud, atau integrasi AI organisasi Anda bersama tim arsitek STRATiS.
+                    Terhubung langsung dengan tim arsitektur enterprise, operasional cloud global, dan saluran kemitraan strategis STRATiS Technologies Inc.
                 </p>
 
-                <div class="contact-layout">
-                    <!-- Contact Channels -->
-                    <div class="contact-info-panel">
-                        <!-- Phone -->
-                        <div class="contact-tile">
-                            <div class="tile-left">
-                                <div class="tile-icon">
-                                    <i class="fa-solid fa-phone" aria-hidden="true"></i>
-                                </div>
-                                <div>
-                                    <div class="tile-meta-name">Enterprise Hotline</div>
-                                    <div class="tile-meta-val">+62 (21) 5088-0199</div>
-                                </div>
-                            </div>
-                            <i class="fa-solid fa-building text-muted" aria-hidden="true"></i>
+                <div class="contact-executive-layout">
+                    <!-- Left Column: Primary Contact Channels -->
+                    <div class="contact-channels-card">
+                        <div class="contact-card-header">
+                            <span class="font-mono text-cyan" style="font-size: 0.72rem;">// OFFICIAL CHANNELS</span>
+                            <h3 class="contact-card-title">Saluran Komunikasi Resmi</h3>
+                            <p class="contact-card-desc">Pusat komunikasi resmi untuk kebutuhan konsultasi arsitektur, kerjasama kelembagaan, dan permohonan technical briefing.</p>
                         </div>
 
-                        <!-- Email -->
-                        <a href="mailto:solutions@stratis-tech.io" class="contact-tile" aria-label="Official Enterprise Email">
-                            <div class="tile-left">
-                                <div class="tile-icon">
+                        <div class="contact-tiles-list">
+                            <!-- Email Solutions -->
+                            <a href="mailto:solutions@stratis-tech.io" class="contact-tile-link">
+                                <div class="tile-icon-box">
                                     <i class="fa-regular fa-envelope" aria-hidden="true"></i>
                                 </div>
-                                <div>
-                                    <div class="tile-meta-name">Official Inquiries</div>
-                                    <div class="tile-meta-val">solutions@stratis-tech.io</div>
+                                <div class="tile-details">
+                                    <div class="tile-tag font-mono">ENTERPRISE INQUIRIES</div>
+                                    <div class="tile-main-text">solutions@stratis-tech.io</div>
+                                    <div class="tile-sub-text">Konsultasi solusi sistem, audit arsitektur, dan kemitraan</div>
+                                </div>
+                                <div class="tile-action">
+                                    <span class="tile-badge-sla font-mono">&lt; 12h SLA</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-muted" aria-hidden="true"></i>
+                                </div>
+                            </a>
+
+                            <!-- 24/7 Operations / Hotline -->
+                            <div class="contact-tile-static">
+                                <div class="tile-icon-box">
+                                    <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                                </div>
+                                <div class="tile-details">
+                                    <div class="tile-tag font-mono">GLOBAL HOTLINE // NOC</div>
+                                    <div class="tile-main-text">+62 (21) 5088-0199</div>
+                                    <div class="tile-sub-text">Layanan representatif Senin – Jumat (08:00 – 18:00 WIB)</div>
+                                </div>
+                                <div class="tile-action">
+                                    <span class="tile-status-live font-mono"><span class="pulse-dot"></span> LIVE</span>
                                 </div>
                             </div>
-                            <i class="fa-solid fa-chevron-right text-muted" aria-hidden="true"></i>
-                        </a>
 
-                        <!-- Office Headquarters -->
-                        <div class="contact-tile">
-                            <div class="tile-left">
-                                <div class="tile-icon">
-                                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                            <!-- Enterprise Support -->
+                            <a href="mailto:support@stratis-tech.io" class="contact-tile-link">
+                                <div class="tile-icon-box">
+                                    <i class="fa-solid fa-headset" aria-hidden="true"></i>
                                 </div>
-                                <div>
-                                    <div class="tile-meta-name">Headquarters Location</div>
-                                    <div class="tile-meta-val">Horizon Tower, Level 18, Batam, Indonesia</div>
+                                <div class="tile-details">
+                                    <div class="tile-tag font-mono">SECURITY &amp; INFRASTRUCTURE SUPPORT</div>
+                                    <div class="tile-main-text">support@stratis-tech.io</div>
+                                    <div class="tile-sub-text">Dukungan operasional zero-downtime untuk mitra enterprise</div>
                                 </div>
-                            </div>
-                        </div>
+                                <div class="tile-action">
+                                    <span class="tile-badge-sla font-mono">24/7 Ops</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-muted" aria-hidden="true"></i>
+                                </div>
+                            </a>
 
-                        <!-- LinkedIn -->
-                        <div class="contact-tile">
-                            <div class="tile-left">
-                                <div class="tile-icon">
+                            <!-- LinkedIn Network -->
+                            <a href="https://linkedin.com/company/stratis-technologies" target="_blank" rel="noopener noreferrer" class="contact-tile-link">
+                                <div class="tile-icon-box">
                                     <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
                                 </div>
-                                <div>
-                                    <div class="tile-meta-name">Corporate Network</div>
-                                    <div class="tile-meta-val">linkedin.com/company/stratis-technologies</div>
+                                <div class="tile-details">
+                                    <div class="tile-tag font-mono">CORPORATE NETWORK</div>
+                                    <div class="tile-main-text">linkedin.com/company/stratis-technologies</div>
+                                    <div class="tile-sub-text">Pembaruan riset teknologi terdistribusi dan wawasan industri</div>
                                 </div>
-                            </div>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-muted" aria-hidden="true"></i>
+                                <div class="tile-action">
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-muted" aria-hidden="true"></i>
+                                </div>
+                            </a>
                         </div>
                     </div>
 
-                    <!-- B2B Project Intake Form -->
-                    <div class="intake-form-box">
-                        <form id="b2bIntakeForm" novalidate>
-                            <!-- Security Honeypot: Anti-Bot Trap -->
-                            <div class="hp-field" aria-hidden="true">
-                                <label for="hpWebsite">Leave blank if human</label>
-                                <input type="text" id="hpWebsite" name="hp_website" tabindex="-1" autocomplete="off">
+                    <!-- Right Column: Regional Hubs & Executive Consultation Action -->
+                    <div class="contact-offices-card">
+                        <div class="contact-card-header">
+                            <span class="font-mono text-cyan" style="font-size: 0.72rem;">// GLOBAL OPERATIONS</span>
+                            <h3 class="contact-card-title">Lokasi Kantor &amp; Pusat Riset</h3>
+                            <p class="contact-card-desc">Kehadiran operasional STRATiS Technologies untuk mendukung infrastruktur digital regional dan global.</p>
+                        </div>
+
+                        <!-- Office Locations Grid -->
+                        <div class="offices-grid">
+                            <div class="office-box primary-hq">
+                                <div class="office-badge font-mono">HEADQUARTERS &amp; LABS</div>
+                                <div class="office-name">Horizon Tower, Level 18</div>
+                                <div class="office-location"><i class="fa-solid fa-location-dot text-cyan"></i> Batam Digital Park, Indonesia</div>
+                                <div class="office-meta">Pusat riset sistem komputasi terdistribusi, studio rekayasa perangkat lunak, dan operasional utama.</div>
                             </div>
 
-                            <div class="row g-3">
-                                <div class="col-md-6 form-group-custom">
-                                    <label for="intakeName" class="form-label-custom">NAMA / PERWAKILAN *</label>
-                                    <input type="text" id="intakeName" name="name" class="form-control-custom" placeholder="Nama Anda atau perusahaan" required>
-                                </div>
-                                <div class="col-md-6 form-group-custom">
-                                    <label for="intakeEmail" class="form-label-custom">EMAIL RESMI *</label>
-                                    <input type="email" id="intakeEmail" name="email" class="form-control-custom" placeholder="nama@perusahaan.com" required spellcheck="false">
-                                </div>
+                            <div class="office-box">
+                                <div class="office-badge font-mono">REGIONAL GATEWAY</div>
+                                <div class="office-name">One-North Fusionopolis</div>
+                                <div class="office-location"><i class="fa-solid fa-location-dot text-cyan"></i> Singapore Gateway</div>
+                                <div class="office-meta">Hub konektivitas cloud internasional dan koordinasi infrastruktur multi-region.</div>
                             </div>
 
-                            <div class="form-group-custom">
-                                <label for="intakeScope" class="form-label-custom">RUANG LINGKUP KEBUTUHAN *</label>
-                                <select id="intakeScope" name="scope" class="form-control-custom" style="cursor: pointer;">
-                                    <option value="Enterprise Backend (Go Clean Architecture)">Enterprise Backend (Go Clean Architecture)</option>
-                                    <option value="Distributed Cloud &amp; Service Mesh">Distributed Cloud &amp; Service Mesh</option>
-                                    <option value="Enterprise Cognitive AI &amp; Neural Systems">Enterprise Cognitive AI &amp; Neural Systems</option>
-                                    <option value="Database Clustering &amp; Concurrency Tuning">Database Clustering &amp; Concurrency Tuning</option>
-                                </select>
+                            <div class="office-box">
+                                <div class="office-badge font-mono">ENTERPRISE LIAISON</div>
+                                <div class="office-name">SCBD Financial Center</div>
+                                <div class="office-location"><i class="fa-solid fa-location-dot text-cyan"></i> Jakarta, Indonesia</div>
+                                <div class="office-meta">Kantor perwakilan kemitraan korporasi, perbankan, dan institusi finansial.</div>
                             </div>
+                        </div>
 
-                            <div class="form-group-custom">
-                                <label for="intakeMessage" class="form-label-custom">DETAIL PROYEK / SPESIFIKASI *</label>
-                                <textarea id="intakeMessage" name="message" class="form-control-custom" rows="4" placeholder="Jelaskan kebutuhan teknis, target performa, atau alur sistem yang ingin dibangun..." required></textarea>
+                        <!-- Instant Action Banner -->
+                        <div class="contact-cta-banner">
+                            <div class="cta-banner-content">
+                                <div class="cta-banner-title">Konsultasi Arsitektur Interaktif</div>
+                                <div class="cta-banner-text">Miliki pertanyaan arsitektural spesifik seputar sistem terdistribusi atau portfolio STRATiS? Tanyakan langsung ke asisten AI kami.</div>
                             </div>
-
-                            <button type="submit" id="intakeSubmitBtn" class="btn-enterprise-primary w-100 justify-content-center">
-                                <i class="fa-regular fa-paper-plane" aria-hidden="true"></i>
-                                <span>Kirim Permohonan Konsultasi</span>
+                            <button type="button" class="btn-enterprise-primary" id="contactAiLaunchBtn">
+                                <i class="fa-solid fa-comments"></i>
+                                <span>Buka Asisten AI</span>
                             </button>
-
-                            <div id="formToast" class="form-toast" role="alert"></div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -895,9 +913,6 @@
                 </div>
             </div>
             <div class="chatbot-header-actions">
-                <button type="button" class="chatbot-action-btn" id="chatbotClearBtn" title="Bersihkan Riwayat Percakapan">
-                    <i class="fa-solid fa-trash-can" aria-hidden="true"></i>
-                </button>
                 <button type="button" class="chatbot-action-btn" id="chatbotCloseBtn" title="Tutup Chatbot">
                     <i class="fa-solid fa-xmark" aria-hidden="true"></i>
                 </button>
@@ -915,9 +930,9 @@
                     <i class="fa-solid fa-building" aria-hidden="true"></i>
                     <span>Profil &amp; Visi</span>
                 </button>
-                <button type="button" class="quick-chat-btn" data-quick-key="quick_engineering" data-label="Layanan Rekayasa Go &amp; Cloud">
-                    <i class="fa-brands fa-golang" aria-hidden="true"></i>
-                    <span>Rekayasa Go &amp; Cloud</span>
+                <button type="button" class="quick-chat-btn" data-quick-key="quick_engineering" data-label="Arsitektur Sistem &amp; Cloud Terdistribusi">
+                    <i class="fa-solid fa-network-wired" aria-hidden="true"></i>
+                    <span>Sistem &amp; Cloud</span>
                 </button>
                 <button type="button" class="quick-chat-btn" data-quick-key="quick_ai" data-label="Kapabilitas AI &amp; Sistem Cerdas">
                     <i class="fa-solid fa-brain" aria-hidden="true"></i>

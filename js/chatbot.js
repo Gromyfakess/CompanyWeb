@@ -9,14 +9,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const launcher = document.getElementById("chatbotLauncher");
     const panel = document.getElementById("chatbotPanel");
     const closeBtn = document.getElementById("chatbotCloseBtn");
-    const clearBtn = document.getElementById("chatbotClearBtn");
     const msgContainer = document.getElementById("chatbotMessages");
     const chatForm = document.getElementById("chatbotInputForm");
     const chatInput = document.getElementById("chatbotInput");
     const sendBtn = document.getElementById("chatbotSendBtn");
     const quickChatBtns = document.querySelectorAll(".quick-chat-btn");
 
-    const STORAGE_KEY_HISTORY = "stratis_assistant_history_v2";
+    // Session-only conversation history (resets per refresh)
     let conversationHistory = [];
     let isGenerating = false;
 
@@ -45,15 +44,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     if (closeBtn) closeBtn.addEventListener("click", () => toggleChat(false));
 
-    // Clear Conversation History
-    if (clearBtn) {
-        clearBtn.addEventListener("click", () => {
-            conversationHistory = [];
-            localStorage.removeItem(STORAGE_KEY_HISTORY);
-            msgContainer.innerHTML = "";
-            renderInitialGreeting();
-        });
-    }
+    // Close when clicking outside of the chatbot panel
+    document.addEventListener("click", (e) => {
+        if (!panel || !panel.classList.contains("is-open")) return;
+
+        const isClickInsidePanel = panel.contains(e.target);
+        const isClickOnLauncher = launcher && launcher.contains(e.target);
+        const isClickOnHeroLaunch = heroQuickLaunch && heroQuickLaunch.contains(e.target);
+        const isClickOnContactLaunch = e.target.closest && e.target.closest("#contactAiLaunchBtn");
+
+        if (!isClickInsidePanel && !isClickOnLauncher && !isClickOnHeroLaunch && !isClickOnContactLaunch) {
+            toggleChat(false);
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && panel && panel.classList.contains("is-open")) {
+            toggleChat(false);
+        }
+    });
 
     // Strict HTML Escaping to prevent XSS
     function escapeHtml(text) {

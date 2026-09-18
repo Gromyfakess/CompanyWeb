@@ -190,14 +190,14 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "AetherMesh — Distributed Multi-Cloud Service Mesh & Edge Gateway",
             category: "Distributed Cloud Infrastructure // High-Concurrency Network Engine",
             image: "images/projects/aethermesh.jpg",
-            summary: "High-concurrency edge API gateway dan zero-trust service mesh berskala multi-region global yang menangani routing mikroarsitektur dengan latensi jaringan sub-milidetik. Menggunakan bahasa Go dan inspeksi kernel eBPF untuk mencapai efisiensi throughput ekstrem tanpa overhead proxy tradisional.",
+            summary: "High-concurrency edge API gateway dan zero-trust service mesh berskala multi-region global yang menangani routing mikroarsitektur dengan latensi jaringan sub-milidetik untuk mencapai efisiensi throughput ekstrem tanpa overhead proxy tradisional.",
             specs: [
-                { title: "Core Engine", val: "Go (Golang) • eBPF Kernel Acceleration" },
+                { title: "Core Engine", val: "High-Throughput Native Routing Engine" },
                 { title: "Throughput Scale", val: "54,000+ Requests/sec per cluster node" },
                 { title: "Security Protocol", val: "Zero-Trust mutual TLS (mTLS) with SPIFFE/SPIRE" },
                 { title: "Median Hop Latency", val: "0.85ms p50 (1.4ms p99 across multi-region mesh)" },
                 { title: "Traffic Topology", val: "Autonomous Circuit Breaking & Weighted Canary Routing" },
-                { title: "Observability", val: "Distributed eBPF Tracing & OpenTelemetry Exporter" }
+                { title: "Observability", val: "Distributed Tracing & OpenTelemetry Exporter" }
             ],
             link: "aethermesh.stratis.internal"
         },
@@ -205,9 +205,9 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "NexusCore — Real-Time Transaction Engine & Ledger Reconciliation",
             category: "Core Financial Architecture // Distributed Event-Sourced Ledger",
             image: "images/projects/nexuscore.jpg",
-            summary: "Mesin kliring transaksi finansial dan rekonsiliasi pembukuan real-time berkinerja tinggi untuk institusi perbankan dan fintech global. Dibangun berlandaskan Go Clean Architecture dengan model Event Sourcing dan snapshot in-memory Redis, menjamin penyelesaian transaksi ACID mutlak tanpa dirty read.",
+            summary: "Mesin kliring transaksi finansial dan rekonsiliasi pembukuan real-time berkinerja tinggi untuk institusi perbankan dan fintech global dengan model Event Sourcing dan snapshot in-memory terdistribusi, menjamin penyelesaian transaksi ACID mutlak tanpa dirty read.",
             specs: [
-                { title: "Architecture Standard", val: "Go Clean Architecture • Event Sourcing & CQRS" },
+                { title: "Architecture Standard", val: "Enterprise Modular Architecture • Event Sourcing & CQRS" },
                 { title: "Transaction Throughput", val: "32,500 Transactions/sec sustained peak" },
                 { title: "Data Tier", val: "Clustered PostgreSQL with WAL Replication" },
                 { title: "Settlement SLA", val: "Sub-5ms End-to-End Cryptographic Clearance" },
@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
             summary: "Platform orkestrasi inferensi cerdas tingkat lanjut yang menghubungkan microservices korporat dengan kluster neural internal STRATiS. Dilengkapi visualisasi neural pathways, pemantauan latensi inferensi real-time, dan retrieval-augmented generation (RAG) aman berbasis enkripsi tingkat enterprise.",
             specs: [
                 { title: "Inference Engine", val: "STRATiS Enterprise Neural Cluster v4.2" },
-                { title: "Microservices", val: "Python FastAPI & Go Streaming Gateway" },
+                { title: "Microservices", val: "Asynchronous High-Throughput Streaming Gateway" },
                 { title: "Vector Search", val: "High-dimensional pgvector with semantic chunking" },
                 { title: "Telemetry Metrics", val: "Token/sec throughput & compute load telemetry" },
                 { title: "Security Isolation", val: "Serverless Netlify Proxy & Edge TLS 1.3" },
@@ -235,9 +235,9 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "Sentinel Cloud Gateway & Cyber Telemetry",
             category: "Cloud Microservices // High Concurrency Gateway",
             image: "images/projects/sentinel-gateway.jpg",
-            summary: "API Gateway mikroarsitektur berkinerja tinggi yang menangani perutean request, rate limiting adaptif berbasis Redis, mitigasi serangan DDoS, dan inspeksi WAF dengan latensi jaringan sub-milidetik menggunakan arsitektur Go murni.",
+            summary: "API Gateway mikroarsitektur berkinerja tinggi yang menangani perutean request, rate limiting adaptif berbasis Redis, mitigasi serangan DDoS, dan inspeksi WAF dengan latensi jaringan sub-milidetik menggunakan arsitektur mikroarsitektur modern.",
             specs: [
-                { title: "Core Engine", val: "Go (Golang) with High-Performance Goroutines" },
+                { title: "Core Engine", val: "High-Concurrency Async Execution Engine" },
                 { title: "Distributed Cache", val: "Redis Cluster for Token Bucket Rate Limiting" },
                 { title: "Security Layer", val: "WAF Middleware & Anomaly Detection" },
                 { title: "Throughput", val: "10,000+ Requests/sec per node" },
@@ -258,109 +258,61 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalSpecsGrid = document.getElementById("modalSpecsGrid");
 
     function openModal(projectId) {
-        const item = projectData[projectId];
-        if (!item || !modalOverlay) return;
+        const p = projectData[projectId];
+        if (!p) return;
 
-        modalCategory.textContent = `// ${item.category}`;
-        modalTitle.textContent = item.title;
-        modalImage.src = item.image;
-        modalImage.alt = item.title;
-        modalSummary.textContent = item.summary;
+        modalCategory.textContent = `// ${p.category}`;
+        modalTitle.textContent = p.title;
+        modalImage.src = p.image;
+        modalImage.alt = p.title;
+        modalSummary.textContent = p.summary;
 
-        modalSpecsGrid.innerHTML = "";
-        item.specs.forEach(spec => {
-            const specDiv = document.createElement("div");
-            specDiv.className = "arch-spec-item";
-            specDiv.innerHTML = `
-                <div class="spec-title">${spec.title}</div>
-                <div class="spec-val">${spec.val}</div>
-            `;
-            modalSpecsGrid.appendChild(specDiv);
-        });
+        modalSpecsGrid.innerHTML = p.specs.map(s => `
+            <div class="arch-spec-item">
+                <span class="spec-label font-mono">${s.title}</span>
+                <span class="spec-val">${s.val}</span>
+            </div>
+        `).join("");
 
-        modalOverlay.classList.add("is-active");
+        modalOverlay.classList.add("is-open");
         document.body.style.overflow = "hidden";
     }
 
     function closeModal() {
-        if (!modalOverlay) return;
-        modalOverlay.classList.remove("is-active");
+        modalOverlay.classList.remove("is-open");
         document.body.style.overflow = "";
     }
 
     document.querySelectorAll(".btn-open-modal").forEach(btn => {
-        btn.addEventListener("click", (e) => {
-            e.stopPropagation();
-            const projId = btn.getAttribute("data-project-id");
-            openModal(projId);
+        btn.addEventListener("click", () => {
+            const id = btn.getAttribute("data-project-id");
+            openModal(id);
         });
     });
 
-    if (modalCloseBtn) modalCloseBtn.addEventListener("click", closeModal);
+    if (modalCloseBtn) {
+        modalCloseBtn.addEventListener("click", closeModal);
+    }
+
     if (modalOverlay) {
         modalOverlay.addEventListener("click", (e) => {
             if (e.target === modalOverlay) closeModal();
         });
     }
 
-    window.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && modalOverlay && modalOverlay.classList.contains("is-active")) {
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modalOverlay && modalOverlay.classList.contains("is-open")) {
             closeModal();
         }
     });
 
-    // 11. B2B Consultation Intake Form with Honeypot Security
-    const contactForm = document.getElementById("b2bIntakeForm");
-    const formToast = document.getElementById("formToast");
-
-    if (contactForm) {
-        contactForm.addEventListener("submit", (e) => {
+    // 11. Interactive Contact Section Assistant Launcher
+    const contactAiBtn = document.getElementById("contactAiLaunchBtn");
+    if (contactAiBtn) {
+        contactAiBtn.addEventListener("click", (e) => {
             e.preventDefault();
-
-            // Honeypot check
-            const honeypot = document.getElementById("hpWebsite");
-            if (honeypot && honeypot.value) {
-                console.warn("Spam bot trapped.");
-                return;
-            }
-
-            const name = document.getElementById("intakeName").value.trim();
-            const email = document.getElementById("intakeEmail").value.trim();
-            const scope = document.getElementById("intakeScope").value;
-            const message = document.getElementById("intakeMessage").value.trim();
-
-            if (!name || !email || !message) {
-                showToast("Mohon lengkapi seluruh kolom formulir.", "error");
-                return;
-            }
-
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                showToast("Alamat email perusahaan tidak valid.", "error");
-                return;
-            }
-
-            const submitBtn = document.getElementById("intakeSubmitBtn");
-            const originalHtml = submitBtn.innerHTML;
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = `<span><i class="fa-solid fa-circle-check"></i> Inquiry Terkirim!</span>`;
-
-            showToast(`Terima kasih, ${name}! Tim arsitek STRATiS telah menerima permohonan konsultasi (${scope}). Kami akan menghubungi email ${email} dalam waktu 1x24 jam.`, "success");
-
-            setTimeout(() => {
-                contactForm.reset();
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalHtml;
-            }, 3500);
+            const chatbotLauncher = document.getElementById("chatbotLauncher");
+            if (chatbotLauncher) chatbotLauncher.click();
         });
-    }
-
-    function showToast(text, type) {
-        if (!formToast) return;
-        formToast.textContent = text;
-        formToast.className = `form-toast ${type}`;
-        setTimeout(() => {
-            formToast.className = "form-toast";
-        }, 6000);
     }
 });

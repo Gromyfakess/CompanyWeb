@@ -11,21 +11,22 @@
    - **Profil Perusahaan**: Identitas korporasi STRATiS Technologies Inc.
    - **Visi & Misi**: Visi global dan 3 pilar misi strategis rekayasa sistem.
    - **Core Values**: 4 nilai inti arsitektur (Presisi, Kecepatan, Alur Mulus, dan Keandalan).
-   - **Tim Kepemimpinan**: Grid profil eksekutif (CEO, Cloud Architect, Head of AI).
+   - **Tim Kepemimpinan**: Grid profil eksekutif (CEO, Principal Cloud Architect, Head of AI).
 
 2. **Portfolio & Showcase Proyek**:
-   - **Galeri Interaktif**: Filter kategori proyek (*Semua*, *Go Core*, *Cloud Mesh*, *Cognitive AI*).
+   - **Galeri Interaktif**: Filter kategori proyek (*Semua*, *Distributed Core*, *Cloud Mesh*, *Cognitive AI*).
    - **Project Showcase**: Studi kasus sistem nyata (AetherMesh, NexusCore, Cognitive Hub, Sentinel Gateway).
    - **Modal Arsitektur**: Lightbox detail spesifikasi teknologi dan metrik performa.
 
 3. **STRATiS Assistant (Chatbot Interaktif)**:
    - **5 Tombol Topik Cepat (Instant Verified Response)**:
      1. Profil & Visi (Tentang Kami)
-     2. Rekayasa Go & Cloud (Layanan)
+     2. Sistem & Cloud (Layanan)
      3. Sistem Cerdas AI (Kapabilitas)
      4. Proyek Produksi (Showcase Proyek)
      5. Kontak & Kemitraan
    - **AI Question Answering**: Pertanyaan teknis bebas dijawab secara cerdas oleh asisten AI.
+   - **Refined UX**: Sesi percakapan per sesi browser (reset saat refresh) dan fitur klik di luar untuk menutup drawer secara otomatis.
    - **Zero Client Key Exposure**: Keamanan terjamin tanpa membocorkan API key di sisi klien/browser.
 
 ---
