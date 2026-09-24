@@ -75,11 +75,36 @@ document.addEventListener("DOMContentLoaded", () => {
             .replace(/'/g, "&#039;");
     }
 
+    // Strip reasoning traces and <think>...</think> blocks to display only the actual answer
+    function stripThinkingProcess(raw) {
+        if (!raw) return "";
+        let text = String(raw).trim();
+
+        // 1. Strip closed <think>...</think> blocks and keep what comes after </think>
+        if (text.includes("</think>")) {
+            const parts = text.split("</think>");
+            const actualAnswer = parts.slice(1).join("</think>").trim();
+            text = actualAnswer || text.replace(/<think>[\s\S]*?<\/think>/gi, "").trim();
+        } else if (text.includes("<think>")) {
+            // Cut off incomplete <think> tag if model started with <think>
+            const beforeThink = text.substring(0, text.indexOf("<think>")).trim();
+            text = beforeThink || text.replace(/<think>[\s\S]*/gi, "").trim();
+        }
+
+        // 2. Strip bracket variants like [THINK]...[/THINK]
+        text = text.replace(/\[THINK\][\s\S]*?\[\/THINK\]/gi, "").trim();
+
+        // 3. Strip plaintext thinking traces if present at start
+        text = text.replace(/^(?:(?:\*\*|\*|#+)?\s*(?:thinking\s*process|chain\s*of\s*thought|reasoning)(?:\*\*|\*|:)?[\s\S]*?(?=(?:###|\*\*|[A-Z][a-z]+:|\n\n)))/i, "").trim();
+
+        return text;
+    }
+
     // Markdown Parser
     function parseSafeMarkdown(raw) {
         if (!raw) return "";
 
-        let safe = raw
+        let safe = stripThinkingProcess(raw)
             .replace(/&/g, "&amp;")
             .replace(/</g, "&lt;")
             .replace(/>/g, "&gt;");
@@ -311,7 +336,20 @@ Pilih rekomendasi di bawah untuk jawaban instan seputar arsitektur dan kapabilit
                     if (contentType.includes("application/json")) {
                         const data = await res.json();
                         if (res.ok && data.choices && data.choices[0] && data.choices[0].message) {
-                            aiResponseText = data.choices[0].message.content;
+                            const rawMsg = data.choices[0].message.content || "";
+                            let cleaned = stripThinkingProcess(rawMsg);
+
+                            // If stripping left empty string because all tokens were inside <think>,
+                            // check if reasoning_content had a concluding statement
+                            if (!cleaned && data.choices[0].message.reasoning_content) {
+                                const reasoningStr = String(data.choices[0].message.reasoning_content).trim();
+                                const answerMatch = reasoningStr.match(/(?:kesimpulan|jawaban|ringkasan|final answer|conclusion):\s*([\s\S]+)$/i);
+                                if (answerMatch && answerMatch[1]) {
+                                    cleaned = answerMatch[1].trim();
+                                }
+                            }
+
+                            aiResponseText = cleaned || "";
                         }
                     }
                 } catch (netErr) {
@@ -319,7 +357,7 @@ Pilih rekomendasi di bawah untuk jawaban instan seputar arsitektur dan kapabilit
                 }
             }
 
-            // Fallback to intelligent corporate knowledge base if offline or serverless not reachable
+            // Fallback to corporate knowledge base if offline, serverless error, or empty response
             if (!aiResponseText) {
                 aiResponseText = (typeof queryKnowledgeBase === "function")
                     ? queryKnowledgeBase(text)
